@@ -10,18 +10,18 @@ const stockQueries=['strange architecture','unusual object still life','abstract
 const observed={time:'',day:'',battery:null,connection:''};
 let state='intro',trainingMode='camera',stream=null,facing='environment',countdownHandle=null,timerHandle=null,recognition=null,cameraAttempt=0;
 let currentPromptText='',visualProfile=BokeScoring.neutralVisual(),promptShownAt=0,responseMs=0;
-let baselineTotal=null,lastResult=null,lastTip=null,sessionCount=0,pendingSource='',stockObjectUrl='';
+let baselineTotal=null,lastResult=null,lastTip=null,lastAnswer='',sessionCount=0,pendingSource='',stockObjectUrl='';
 
 function safeLoad(){try{const parsed=JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');return parsed&&typeof parsed==='object'?parsed:{}}catch{return{}}}
 function safeSave(data){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(data));return true}catch{return false}}
-function profile(){const data=safeLoad();return{best:Number.isFinite(data.best)?data.best:0,feedback:data.feedback&&typeof data.feedback==='object'?data.feedback:{}}}
+function profile(){const data=safeLoad();return{best:Number.isFinite(data.localBest)?data.localBest:0,feedback:data.feedback&&typeof data.feedback==='object'?data.feedback:{}}}
 function setStatus(text){$('#status').textContent=text}
 function stopCamera(){cameraAttempt++;if(stream){stream.getTracks().forEach(track=>track.stop());stream=null}video.srcObject=null}
 function revokeStockUrl(){if(stockObjectUrl){URL.revokeObjectURL(stockObjectUrl);stockObjectUrl=''}}
 function sound(freq=220,duration=.1){try{const Audio=window.AudioContext||window.webkitAudioContext;if(!Audio)return;const ac=sound.ac??=new Audio(),osc=ac.createOscillator(),gain=ac.createGain();osc.frequency.value=freq;gain.gain.setValueAtTime(.04,ac.currentTime);gain.gain.exponentialRampToValueAtTime(.001,ac.currentTime+duration);osc.connect(gain).connect(ac.destination);osc.start();osc.stop(ac.currentTime+duration)}catch{}}
 function setState(next){state=next;document.body.dataset.state=next}
 function renderCoachRoster(){
-  const coaches=BokeScoring.coaches,roster=$('.judge-roster'),panel=$('.judge-panel');
+  const coaches=BokeScoring.localJurors,roster=$('.judge-roster'),panel=$('.judge-panel');
   if(roster)roster.replaceChildren(...coaches.map(coach=>{const span=document.createElement('span');span.textContent=`${coach.name}：${coach.key}`;return span}));
   if(panel)panel.replaceChildren(...coaches.map(coach=>{const span=document.createElement('span');span.textContent=coach.initial;span.title=coach.key;return span}));
 }
@@ -34,6 +34,7 @@ async function observeSafeWorld(){
 }
 async function beginMode(mode){
   if(!['camera','stock'].includes(mode))return;trainingMode=mode;document.body.dataset.mode=mode;sound(330,.08);$('#start').classList.add('gone');setState('idle');observeSafeWorld();
+  $('#modeBackInlineBtn').hidden=false;
   $('#modeBadge').textContent=mode==='camera'?'写真で一言':'フリー素材大喜利';$('#newPhotoBtn').textContent=mode==='camera'?'次の写真で一言へ':'次のフリー素材へ';
   if(mode==='stock'){$('#shutter').hidden=true;$('#flipBtn').hidden=true;$('#stockBtn').hidden=true;$('#prompt').textContent='フリー素材を選んでいます…';setStatus('フリー素材を安全確認しながら探索中…');await loadStockImage();return}
   $('#shutter').hidden=false;$('#shutter').disabled=false;$('#flipBtn').hidden=false;$('#flipBtn').disabled=false;$('#stockBtn').hidden=true;$('#prompt').textContent='目の前の何かを撮ってください。';setStatus('撮影ボタンでカメラを起動');
@@ -142,35 +143,37 @@ function startAnswer(){
 }
 function stopListeningUi(){clearInterval(timerHandle);timerHandle=null;$('#app').classList.remove('listening');recognition=null}
 function finishAnswer(answer){
-  if(!['listening','prompt','text-ready'].includes(state))return;stopListeningUi();const clean=String(answer||'').trim();if(!clean){setState('text-ready');showTextEntry('音声を認識できませんでした。文字で入力してください');return}
-  responseMs=Math.max(0,Date.now()-promptShownAt);$('#answerText').textContent=clean;$('#answerCard').classList.add('show');$('#answerBtn').hidden=true;$('#textAnswerBtn').hidden=true;$('#textEntry').hidden=true;setState('judging');setStatus('写真・お題・回答の関係を分析中…');judge(clean);
+  if(!['listening','prompt','text-ready'].includes(state))return;stopListeningUi();const clean=[...String(answer||'')].slice(0,120).join('').trim();if(!clean){setState('text-ready');showTextEntry('音声を認識できませんでした。文字で入力してください');return}
+  lastAnswer=clean;responseMs=Math.max(0,Date.now()-promptShownAt);$('#answerText').textContent=clean;$('#answerCard').classList.add('show');$('#answerBtn').hidden=true;$('#textAnswerBtn').hidden=true;$('#textEntry').hidden=true;setState('judging');setStatus('端末内で形式とテンポを分析中…');judge(clean);
 }
 function judge(answer){
   $('#judging').classList.add('show');sound(110,.4);const result=BokeScoring.scoreAnswer({answer,prompt:currentPromptText,responseMs,visual:visualProfile});
   setTimeout(()=>{$('#judging').classList.remove('show');showResult(result)},900);
 }
 function showResult(result){
-  lastResult=result;sessionCount++;lastTip=BokeScoring.trainingTip(result,profile().feedback);setState('result');sound(result.total>=58?880:330,.5);$('#score').textContent='0';$('#judgeComment').textContent=result.comment;
-  const breakdown=$('#breakdown');breakdown.className='breakdown judge-scores';breakdown.replaceChildren(...result.scores.map(item=>{const span=document.createElement('span'),score=document.createElement('b');span.append(item.name,score,item.key);score.textContent=item.score;return span}));
+  lastResult=result;sessionCount++;lastTip=BokeScoring.localTrainingTip(result,profile().feedback);setState('result');setStatus('端末内の三役審査が完了しました');sound(result.localScore>=65?880:330,.5);$('#score').textContent='0';
+  const breakdown=$('#breakdown');breakdown.className='breakdown local-signals';breakdown.replaceChildren(...result.localSignals.map(item=>{const span=document.createElement('span'),score=document.createElement('b');span.append(item.label,score);score.textContent=`${Math.round(item.value*100)}`;return span}));
+  const jury=BokeScoring.localJury(result),strong=[...jury].sort((a,b)=>b.score-a.score)[0],weak=[...jury].sort((a,b)=>a.score-b.score)[0];$('#judgeComment').textContent=`${strong.name}「${strong.comment}」 次は${weak.key}を鍛えよう。`;
+  $('#localJuryCards').replaceChildren(...jury.map(juror=>{const card=document.createElement('article'),head=document.createElement('div'),icon=document.createElement('i'),name=document.createElement('b'),score=document.createElement('strong'),comment=document.createElement('p');icon.textContent=juror.initial;name.textContent=`${juror.name}／${juror.key}`;score.textContent=juror.score;comment.textContent=juror.comment;head.append(icon,name,score);card.append(head,comment);return card}));
   const coachTip=$('#coachTip');coachTip.replaceChildren();const tipTitle=document.createElement('b');tipTitle.textContent=`NEXT CHALLENGE：${lastTip.skill}`;coachTip.append(tipTitle,lastTip.text);
-  const growth=$('#growth');if(baselineTotal!=null){const diff=result.total-baselineTotal;growth.textContent=diff>0?`前回から +${diff}点`:`前回比 ${diff}点`;growth.className=`growth ${diff>0?'up':''}`}else{growth.textContent=`本日 ${sessionCount}回答目`;growth.className='growth'}
-  const d=result.dimensions;$('#trace').textContent=`回答 ${result.len}文字／回答まで ${(result.responseMs/1000).toFixed(1)}秒\n写真接続 ${Math.round(d.visualGrounding*100)}・お題適合 ${Math.round(d.promptFit*100)}・新鮮さ ${Math.round(d.novelty*100)}・意外性 ${Math.round(d.surprise*100)}・ひねり ${Math.round(d.twist*100)}・展開 ${Math.round(d.escalation*100)}\n採点 ${result.scoringVersion}／特徴 ${result.featureVersion}／設定 ${result.configVersion}（${result.configSource==='network'?'更新済み':result.configSource==='cached'?'保存済み':'内蔵'}）`;
+  const growth=$('#growth');if(baselineTotal!=null){const diff=result.localScore-baselineTotal;growth.textContent=diff>0?`ローカル前回比 +${diff}`:`ローカル前回比 ${diff}`;growth.className=`growth ${diff>0?'up':''}`}else{growth.textContent=`本日 ${sessionCount}回答目`;growth.className='growth'}
+  const localText=result.localSignals.map(item=>`${item.label} ${Math.round(item.value*100)}`).join('・');$('#trace').textContent=`回答 ${result.len}文字／回答まで ${(result.responseMs/1000).toFixed(1)}秒\n${localText}\nローカル分析 ${result.scoringVersion}／特徴 ${result.featureVersion}／設定 ${result.configVersion}（${result.configSource==='network'?'更新済み':result.configSource==='cached'?'保存済み':'内蔵'}）`;
   $('.calibrate').classList.remove('done');$('.calibrate').removeAttribute('data-message');$('#nearBtn').disabled=false;$('#farBtn').disabled=false;$('#result').classList.add('show');
-  let number=0;const animation=setInterval(()=>{number++;$('#score').textContent=number;if(number>=result.total)clearInterval(animation)},25);
-  const data=safeLoad(),best=Math.max(result.total,Number(data.best)||0);data.best=best;safeSave(data);$('#best').textContent=`${best}点`;navigator.vibrate?.(result.total>=58?[50,40,50,40,150]:40);
+  let number=0;const animation=setInterval(()=>{number++;$('#score').textContent=number;if(number>=result.localScore)clearInterval(animation)},20);
+  const data=safeLoad(),best=Math.max(result.localScore,Number(data.localBest)||0);data.localBest=best;safeSave(data);$('#best').textContent=`${best}点`;navigator.vibrate?.(result.localScore>=65?[50,40,50,40,150]:40);
 }
 function retryTraining(){
-  baselineTotal=lastResult?.total??null;$('#result').classList.remove('show');currentPromptText=$('#prompt').textContent;$('#answerText').textContent='……';$('#answerCard').classList.remove('show');promptShownAt=Date.now();$('#answerBtn').hidden=false;$('#textAnswerBtn').hidden=false;setState('prompt');setStatus('改善ヒントを使って、もう一度');
+  baselineTotal=lastResult?.localScore??null;$('#result').classList.remove('show');currentPromptText=$('#prompt').textContent;lastAnswer='';$('#answerText').textContent='……';$('#answerCard').classList.remove('show');promptShownAt=Date.now();$('#answerBtn').hidden=false;$('#textAnswerBtn').hidden=false;setState('prompt');setStatus('改善ヒントを使って、もう一度');
 }
 async function resetRound(){
-  $('#result').classList.remove('show');baselineTotal=null;lastResult=null;lastTip=null;currentPromptText='';pendingSource='';visualProfile=BokeScoring.neutralVisual();revokeStockUrl();
+  $('#result').classList.remove('show');baselineTotal=null;lastResult=null;lastTip=null;lastAnswer='';currentPromptText='';pendingSource='';visualProfile=BokeScoring.neutralVisual();revokeStockUrl();
   $('#cameraStage').classList.remove('captured','using-stock','camera-ready');$('#stockImage').removeAttribute('src');$('#attribution').className='attribution';$('#attribution').removeAttribute('href');$('#confirmPhotoBtn').hidden=true;$('#answerBtn').hidden=true;$('#textAnswerBtn').hidden=true;$('#textEntry').hidden=true;$('#stockBtn').disabled=false;setState('idle');
   if(trainingMode==='stock'){$('#flipBtn').hidden=true;$('#shutter').hidden=true;$('#stockBtn').hidden=true;$('#prompt').textContent='フリー素材を選んでいます…';setStatus('次のフリー素材を探索中…');await loadStockImage();return}
   $('#flipBtn').hidden=false;$('#flipBtn').disabled=false;$('#shutter').hidden=false;$('#shutter').disabled=false;$('#stockBtn').hidden=true;$('#prompt').textContent='目の前の何かを撮ってください。';setStatus('撮影ボタンでカメラを起動');
 }
 function returnToModeSelect(){
-  clearInterval(countdownHandle);countdownHandle=null;stopListeningUi();stopCamera();revokeStockUrl();$('#result').classList.remove('show');$('#judging').classList.remove('show');$('#start').classList.remove('gone');baselineTotal=null;lastResult=null;lastTip=null;currentPromptText='';pendingSource='';visualProfile=BokeScoring.neutralVisual();delete document.body.dataset.mode;
-  $('#cameraStage').classList.remove('captured','using-stock','camera-ready');$('#stockImage').removeAttribute('src');$('#attribution').className='attribution';$('#attribution').removeAttribute('href');$('#confirmPhotoBtn').hidden=true;$('#answerBtn').hidden=true;$('#textAnswerBtn').hidden=true;$('#textEntry').hidden=true;$('#flipBtn').hidden=false;$('#shutter').hidden=false;$('#stockBtn').hidden=false;$('#modeBadge').textContent='モードを選択';$('#prompt').textContent='まずはトレーニングモードを選んでください。';setState('intro');setStatus('モードを選択してください');
+  clearInterval(countdownHandle);countdownHandle=null;stopListeningUi();stopCamera();revokeStockUrl();$('#result').classList.remove('show');$('#judging').classList.remove('show');$('#start').classList.remove('gone');baselineTotal=null;lastResult=null;lastTip=null;lastAnswer='';currentPromptText='';pendingSource='';visualProfile=BokeScoring.neutralVisual();delete document.body.dataset.mode;
+  $('#cameraStage').classList.remove('captured','using-stock','camera-ready');$('#stockImage').removeAttribute('src');$('#attribution').className='attribution';$('#attribution').removeAttribute('href');$('#answerText').textContent='……';$('#answerCard').classList.remove('show');$('#confirmPhotoBtn').hidden=true;$('#answerBtn').hidden=true;$('#textAnswerBtn').hidden=true;$('#textEntry').hidden=true;$('#flipBtn').hidden=false;$('#shutter').hidden=false;$('#stockBtn').hidden=false;$('#modeBackInlineBtn').hidden=true;$('#modeBadge').textContent='モードを選択';$('#prompt').textContent='まずはトレーニングモードを選んでください。';setState('intro');setStatus('モードを選択してください');scrollTo({top:0,behavior:'auto'});$('#prompt').focus?.();
 }
 function recordCalibration(type){
   if(!lastTip||!['near','far'].includes(type))return;const data=safeLoad();data.feedback=data.feedback&&typeof data.feedback==='object'?data.feedback:{};const vote=data.feedback[lastTip.key]||{near:0,far:0};vote[type]=Math.min(99,(Number(vote[type])||0)+1);data.feedback[lastTip.key]=vote;
@@ -181,7 +184,7 @@ function clearLocalData(){try{localStorage.removeItem(STORAGE_KEY)}catch{}$('#be
 $('#cameraModeBtn').addEventListener('click',()=>beginMode('camera'));$('#stockModeBtn').addEventListener('click',()=>beginMode('stock'));$('#shutter').addEventListener('click',onShutter);$('#stockBtn').addEventListener('click',loadStockImage);$('#confirmPhotoBtn').addEventListener('click',approvePhoto);$('#answerBtn').addEventListener('click',startAnswer);$('#textAnswerBtn').addEventListener('click',()=>{setState('text-ready');showTextEntry()});
 $('#textEntry').addEventListener('submit',event=>{event.preventDefault();finishAnswer($('#answerInput').value);$('#answerInput').value=''});
 $('#flipBtn').addEventListener('click',async()=>{if(state!=='camera-ready')return;facing=facing==='environment'?'user':'environment';await startCamera()});
-$('#nearBtn').addEventListener('click',()=>recordCalibration('near'));$('#farBtn').addEventListener('click',()=>recordCalibration('far'));$('#retryBtn').addEventListener('click',retryTraining);$('#newPhotoBtn').addEventListener('click',resetRound);$('#changeModeBtn').addEventListener('click',returnToModeSelect);$('#clearDataBtn').addEventListener('click',clearLocalData);
+$('#nearBtn').addEventListener('click',()=>recordCalibration('near'));$('#farBtn').addEventListener('click',()=>recordCalibration('far'));$('#retryBtn').addEventListener('click',retryTraining);$('#newPhotoBtn').addEventListener('click',resetRound);$('#changeModeBtn').addEventListener('click',returnToModeSelect);$('#modeBackInlineBtn').addEventListener('click',returnToModeSelect);$('#clearDataBtn').addEventListener('click',clearLocalData);
 document.addEventListener('visibilitychange',()=>{if(document.hidden){clearInterval(countdownHandle);countdownHandle=null;$('#countdown').textContent='';stopCamera();if(['camera-ready','camera-starting','countdown','validating'].includes(state)){setState('idle');$('#cameraStage').classList.remove('camera-ready','captured');$('#shutter').hidden=false;$('#shutter').disabled=false;$('#flipBtn').hidden=false;$('#flipBtn').disabled=false;setStatus('カメラを停止しました。撮影ボタンで再開できます')}}});
 addEventListener('pagehide',()=>{stopCamera();revokeStockUrl()});
 const initial=profile();$('#best').textContent=initial.best?`${initial.best}点`:'—';if(!SpeechRecognition)$('#answerBtn b').textContent='文字でボケる';

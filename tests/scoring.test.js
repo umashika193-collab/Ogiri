@@ -77,3 +77,28 @@ test('画像の明暗を端末内で分類できる',()=>{
   const result=scoring.analyzeImageData({data,width:4,height:4});
   assert.ok(result.labels.includes('bright'));
 });
+
+test('ローカル分析は面白さではなく測定可能な7信号を返す',()=>{
+  const result=scoring.scoreAnswer({answer:'地下アイドル、地上に出たら解散。',prompt:'この写真だけが知っている秘密とは？',responseMs:8000,visual:scoring.neutralVisual('sweet potato')});
+  assert.equal(result.localSignals.length,7);assert.ok(Number.isInteger(result.localScore));assert.ok(result.localScore>=0&&result.localScore<=100);
+  assert.deepEqual(result.localSignals.map(item=>item.key),['promptFit','clarity','brevity','specificity','rhythm','visualGrounding','instant']);
+});
+
+test('回答は絵文字を壊さず120文字へ揃える',()=>{
+  const result=scoring.scoreAnswer({answer:'🍠'.repeat(130),prompt:'この写真で一言。',responseMs:8000,visual:scoring.neutralVisual()});assert.equal(result.len,120);
+});
+
+test('ローカル改善ヒントは測定可能な信号だけから選ぶ',()=>{
+  const dimensions=Object.fromEntries(scoring.dimensions.map(key=>[key,.9]));dimensions.instant=.1;dimensions.novelty=0;
+  const tip=scoring.localTrainingTip({dimensions});assert.equal(tip.key,'instant');
+});
+
+test('API不要の三役審査は測定可能な信号だけを担当する',()=>{
+  const dimensions=Object.fromEntries(scoring.dimensions.map(key=>[key,0]));
+  Object.assign(dimensions,{promptFit:1,clarity:.8,brevity:.7,specificity:.6,rhythm:.5,visualGrounding:.4,instant:.3,novelty:1,surprise:1,twist:1});
+  const jury=scoring.localJury({dimensions});
+  assert.deepEqual(jury.map(item=>item.name),['お題番長','一言カッター','写真探偵']);
+  assert.ok(jury.every(item=>Number.isInteger(item.score)&&item.score>=0&&item.score<=100&&item.comment));
+  const sameMeasurableSignals={...dimensions,novelty:0,surprise:0,twist:0};
+  assert.deepEqual(scoring.localJury({dimensions:sameMeasurableSignals}),jury);
+});

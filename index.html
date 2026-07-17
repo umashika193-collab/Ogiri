@@ -4,21 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#f2eddf">
-  <meta name="application-version" content="0.1.1">
+  <meta name="application-version" content="0.2.1">
   <meta name="referrer" content="no-referrer">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' blob: data:; media-src 'self' blob:; connect-src 'self' https://api.openverse.org; object-src 'none'; base-uri 'none'; form-action 'self'">
-  <link rel="manifest" href="manifest.webmanifest?v=0.1.1-r1">
-  <link rel="icon" type="image/png" href="assets/icon-192.png?v=0.1.1-r1">
-  <link rel="apple-touch-icon" href="assets/icon-192.png?v=0.1.1-r1">
+  <link rel="manifest" href="manifest.webmanifest?v=0.2.1-r2">
+  <link rel="icon" type="image/png" href="assets/icon-192.png?v=0.2.1-r2">
+  <link rel="apple-touch-icon" href="assets/icon-192.png?v=0.2.1-r2">
   <title>ボケトレ！— 森羅万象・大喜利トレーニング</title>
-  <link rel="stylesheet" href="style.css?v=0.1.1-r1">
-  <link rel="stylesheet" href="enhancements.css?v=0.1.1-r1">
+  <link rel="stylesheet" href="style.css?v=0.2.1-r2">
+  <link rel="stylesheet" href="enhancements.css?v=0.2.1-r2">
 </head>
 <body>
   <main id="app">
     <header>
       <div class="logo"><span>毎日3分</span><b>ボケトレ!</b></div>
-      <div class="record"><span>BEST</span><b id="best">—</b></div>
+      <div class="record"><span>BEST LOCAL</span><b id="best">—</b></div>
     </header>
 
     <section id="cameraStage" class="camera-stage">
@@ -52,6 +52,7 @@
         <div><input id="answerInput" maxlength="120" enterkeyhint="send" autocomplete="off" placeholder="ボケを入力"><button type="submit">採点</button></div>
       </form>
       <p id="status">カメラを起動して撮影</p>
+      <button id="modeBackInlineBtn" class="mode-back-inline" type="button" hidden>モード選択に戻る</button>
     </section>
 
     <section id="answerCard" class="answer-card">
@@ -59,18 +60,23 @@
     </section>
 
     <section id="judging" class="judging">
-      <div class="judge-panel"><span>M</span><span>A</span><span>S</span><span>A</span><span>K</span><span>S</span><span>T</span><span>J</span><span>B</span><span>N</span></div>
-      <div class="judge-name"><span>10の視点</span><b>回答を分析中</b><small>COMEDY TRAINING</small></div>
+      <div class="judge-panel"><span>題</span><span>切</span><span>写</span></div>
+      <div class="judge-name"><span>端末内・三役審査</span><b>証拠を突き合わせ中</b><small>NO API / LOCAL ONLY</small></div>
       <div class="thinking"><i></i><i></i><i></i></div>
     </section>
 
     <section id="result" class="result">
-      <div class="score-ring"><span>TRAINING SCORE</span><b id="score">0</b><em>/ 100</em></div>
+      <div class="score-ring"><span>LOCAL TRAINING</span><b id="score">0</b><em>/ 100</em></div>
       <div id="growth" class="growth"></div>
       <p id="judgeComment"></p>
       <div id="breakdown" class="breakdown"></div>
       <div id="coachTip" class="coach-tip"></div>
       <details class="scoring-trace"><summary>採点根拠を開く</summary><div id="trace"></div></details>
+      <section class="local-jury" aria-labelledby="localJuryTitle">
+        <div class="local-jury-heading"><b id="localJuryTitle">端末内・三役審査会</b><span>API不要</span></div>
+        <p>3役が別々の測定項目を担当します。意味や面白さの正解ではなく、再挑戦のための練習値です。</p>
+        <div id="localJuryCards" class="local-jury-cards"></div>
+      </section>
       <div class="calibrate"><span>ヒントは役立った？</span><button id="nearBtn">役立つ</button><button id="farBtn">微妙</button></div>
       <button id="retryBtn">ヒントを使って同じお題に再挑戦</button>
       <button id="newPhotoBtn">次のトレーニングへ</button>
@@ -78,7 +84,7 @@
     </section>
 
     <section id="start" class="start">
-      <div class="sticker">UNIVERSE<br>OGIRI<span class="app-version" aria-label="バージョン 0.1.1">v0.1.1</span></div>
+      <div class="sticker">UNIVERSE<br>OGIRI<span class="app-version" aria-label="バージョン 0.2.1">v0.2.1</span></div>
       <h1>ボケを<br><strong>鍛えろ!</strong></h1>
       <p>自分の一枚で「写真で一言」。<br>フリー素材で、じっくり大喜利。</p>
       <aside id="pwaPanel" class="pwa-panel" aria-live="polite" hidden>
@@ -92,18 +98,18 @@
         </div>
         <p id="installHelp" class="pwa-help" hidden></p>
       </aside>
-      <div class="judge-roster"><span>松本◯志：発想</span><span>有吉◯行：毒</span><span>粗◯：構造</span><span>赤嶺総◯：観察</span><span>真空ジェシカ・川北◯澄：異物感</span><span>設楽◯：完成度</span><span>寺田◯明：選択</span><span>千原ジュ◯ア：情景</span><span>バカリ◯ム：設定</span><span>笑い飯・西田◯治：言葉</span></div>
+      <div class="judge-roster"><span>お題番長：お題への着地</span><span>一言カッター：短さとテンポ</span><span>写真探偵：写真の手がかり</span></div>
       <div class="mode-select" aria-label="トレーニングモード">
         <button id="cameraModeBtn" type="button"><span>自分で撮る</span><b>写真で一言</b><em>カメラ・人物なし</em></button>
         <button id="stockModeBtn" type="button"><span>フリー素材</span><b>大喜利</b><em>人物素材もOK</em></button>
       </div>
-      <small>カメラ撮影では人物は対象外です。Openverseのフリー素材は人物を含む場合があります<br>カメラとマイクは使う時だけ許可を求め、位置情報は使用しません<br>音声認識は端末・ブラウザ側で外部処理される場合があります<br>保存するのはベスト点とヒント評価だけ。回答文と写真は保存しません</small>
+      <small>採点とヒント生成はAPIキー不要・端末内だけで完了します<br>カメラ撮影では人物は対象外です。Openverseのフリー素材は人物を含む場合があります<br>カメラとマイクは使う時だけ許可を求め、位置情報は使用しません<br>音声認識は端末・ブラウザ側で外部処理される場合があります<br>保存するのはベスト点とヒント評価だけ。回答文と写真は保存しません</small>
       <button id="clearDataBtn" class="clear-data" type="button">端末内の記録を削除</button>
-      <div class="disclaimer">非公式のパロディ作品です。実在の人物本人による採点・発言ではありません。</div>
+      <div class="disclaimer">三役は端末内ルールによる架空の練習係です。点数は面白さの絶対評価ではありません。</div>
     </section>
   </main>
-  <script src="scoring-core.js?v=0.1.1-r1"></script>
-  <script src="pwa-ui.js?v=0.1.1-r1"></script>
-  <script src="game.js?v=0.1.1-r1"></script>
+  <script src="scoring-core.js?v=0.2.1-r2"></script>
+  <script src="pwa-ui.js?v=0.2.1-r2"></script>
+  <script src="game.js?v=0.2.1-r2"></script>
 </body>
 </html>
