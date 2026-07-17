@@ -4,12 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#f2eddf">
+  <meta name="application-version" content="0.1.0">
   <meta name="referrer" content="no-referrer">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' blob: data:; media-src 'self' blob:; connect-src 'self' https://api.openverse.org; object-src 'none'; base-uri 'none'; form-action 'self'">
-  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="manifest" href="manifest.webmanifest?v=0.1.0-r8">
+  <link rel="icon" type="image/png" href="assets/icon-192.png?v=0.1.0-r8">
+  <link rel="apple-touch-icon" href="assets/icon-192.png?v=0.1.0-r8">
   <title>ボケトレ！— 森羅万象・大喜利トレーニング</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="enhancements.css">
+  <link rel="stylesheet" href="style.css?v=0.1.0-r8">
+  <link rel="stylesheet" href="enhancements.css?v=0.1.0-r8">
 </head>
 <body>
   <main id="app">
@@ -22,7 +25,7 @@
       <video id="camera" autoplay muted playsinline></video>
       <canvas id="photo"></canvas>
       <img id="stockImage" class="stock-image" alt="大喜利用のフリー画像" referrerpolicy="no-referrer">
-      <div class="camera-empty"><div class="eye">◉</div><b>人以外の森羅万象を、大喜利に。</b><span>物、空、街、影、風景。なんでもどうぞ。</span></div>
+      <div class="camera-empty"><div class="eye">◉</div><b>森羅万象を、大喜利に。</b><span>物、空、街、影、風景。なんでもどうぞ。</span></div>
       <div id="peopleWarning" class="people-warning">人物は撮影しないでください</div>
       <div class="finder"><i></i><i></i><i></i><i></i></div>
       <div id="countdown" class="countdown"></div>
@@ -32,7 +35,7 @@
     <a id="attribution" class="attribution" target="_blank" rel="noopener noreferrer"></a>
 
     <section id="promptCard" class="prompt-card">
-      <span>お題</span>
+      <span id="modeBadge">モードを選択</span>
       <h1 id="prompt">まずは、目の前の何かを撮ってください。</h1>
     </section>
 
@@ -71,20 +74,36 @@
       <div class="calibrate"><span>ヒントは役立った？</span><button id="nearBtn">役立つ</button><button id="farBtn">微妙</button></div>
       <button id="retryBtn">ヒントを使って同じお題に再挑戦</button>
       <button id="newPhotoBtn">次のトレーニングへ</button>
+      <button id="changeModeBtn">モード選択に戻る</button>
     </section>
 
     <section id="start" class="start">
-      <div class="sticker">UNIVERSE<br>OGIRI</div>
+      <div class="sticker">UNIVERSE<br>OGIRI<span class="app-version" aria-label="バージョン 0.1.0">v0.1.0</span></div>
       <h1>ボケを<br><strong>鍛えろ!</strong></h1>
-      <p>写真で発想し、声で答え、10の視点で分析。<br>改善してもう一度。伸び幅まで測定します。</p>
+      <p>自分の一枚で「写真で一言」。<br>フリー素材で、じっくり大喜利。</p>
+      <aside id="pwaPanel" class="pwa-panel" aria-live="polite" hidden>
+        <strong id="pwaTitle"></strong>
+        <p id="pwaMessage"></p>
+        <div class="pwa-actions">
+          <a id="openBrowserBtn" class="pwa-primary" href="./" target="_blank" rel="noopener noreferrer" hidden>標準ブラウザで開く</a>
+          <button id="copyUrlBtn" class="pwa-secondary" type="button" hidden>URLをコピー</button>
+          <button id="installPwaBtn" class="pwa-primary" type="button" hidden>アプリをインストール</button>
+          <button id="installHelpBtn" class="pwa-secondary" type="button" hidden>追加方法を見る</button>
+        </div>
+        <p id="installHelp" class="pwa-help" hidden></p>
+      </aside>
       <div class="judge-roster"><span>松◯：発想</span><span>有◯：毒</span><span>粗◯：構造</span><span>三◯：伝達</span><span>大◯：違和感</span><span>設◯：完成度</span><span>日◯：即効性</span><span>ジュ◯：情景</span><span>バカ◯：設定</span><span>西◯：言葉</span></div>
-      <button id="startBtn">今日のトレーニングを始める</button>
-      <small>人物は撮影対象外です<br>カメラとマイクは使う時だけ許可を求め、位置情報は使用しません<br>音声認識は端末・ブラウザ側で外部処理される場合があります<br>保存するのはベスト点とヒント評価だけ。回答文と写真は保存しません</small>
+      <div class="mode-select" aria-label="トレーニングモード">
+        <button id="cameraModeBtn" type="button"><span>自分で撮る</span><b>写真で一言</b><em>カメラ・人物なし</em></button>
+        <button id="stockModeBtn" type="button"><span>フリー素材</span><b>大喜利</b><em>人物素材もOK</em></button>
+      </div>
+      <small>カメラ撮影では人物は対象外です。Openverseのフリー素材は人物を含む場合があります<br>カメラとマイクは使う時だけ許可を求め、位置情報は使用しません<br>音声認識は端末・ブラウザ側で外部処理される場合があります<br>保存するのはベスト点とヒント評価だけ。回答文と写真は保存しません</small>
       <button id="clearDataBtn" class="clear-data" type="button">端末内の記録を削除</button>
       <div class="disclaimer">非公式のパロディ作品です。実在の人物本人による採点・発言ではありません。</div>
     </section>
   </main>
-  <script src="scoring-core.js"></script>
-  <script src="game.js"></script>
+  <script src="scoring-core.js?v=0.1.0-r8"></script>
+  <script src="pwa-ui.js?v=0.1.0-r8"></script>
+  <script src="game.js?v=0.1.0-r8"></script>
 </body>
 </html>

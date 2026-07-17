@@ -1,6 +1,9 @@
 'use strict';
-const CACHE='boke-training-v6';
-const SHELL=['./','./index.html','./style.css','./enhancements.css','./scoring-core.js','./game.js','./manifest.webmanifest'];
+const VERSION='0.1.0';
+const REVISION='r8';
+const CACHE=`boke-training-v${VERSION}-${REVISION}`;
+const ASSET_QUERY=`?v=${VERSION}-${REVISION}`;
+const SHELL=['./','./index.html',`./style.css${ASSET_QUERY}`,`./enhancements.css${ASSET_QUERY}`,`./scoring-core.js${ASSET_QUERY}`,`./pwa-ui.js${ASSET_QUERY}`,`./game.js${ASSET_QUERY}`,`./manifest.webmanifest${ASSET_QUERY}`,'./assets/icon-192.png','./assets/icon-512.png'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(SHELL)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',event=>{

@@ -6,9 +6,9 @@ const MAX_IMAGE_BYTES=8*1024*1024,STORAGE_KEY='bokeTrainingV2';
 const prompts=[
   'これが絶対に言わなそうな一言は？','この光景に「台無しなタイトル」をつけてください','このあと起きた、最悪の出来事とは？','実はこれ、最新の何？','この世界の3秒後、どうなる？','これが世界遺産になった理由とは？','この写真だけが知っている秘密とは？','この状況、何があった？','これを通販番組っぽく紹介してください','神様がこれを作った本当の理由は？','この森羅万象に足りないものは？','この写真で一句。字余り大歓迎。','この風景、よく見ると何が変？','この瞬間に流れているBGMのタイトルは？','地球最後の日に、なぜこれを撮った？','この影の持ち主、何者？','100年後の教科書では、何と呼ばれている？','この空模様、誰の機嫌？','この場所の絶対に守られていないルールとは？','写真の外側で起きていることを教えてください'
 ];
-const stockQueries=['strange architecture','unusual object still life','abstract texture','dramatic clouds landscape','vintage machine object','food still life','surreal landscape no people','colorful building exterior','empty chair still life','peculiar vehicle object','mysterious forest landscape','odd sign object'];
+const stockQueries=['strange architecture','unusual object still life','abstract texture','dramatic clouds landscape','vintage machine object','food still life','surreal landscape','colorful building exterior','empty chair still life','peculiar vehicle object','mysterious forest landscape','odd sign object','vintage portrait','people at work','street scene people','sports portrait'];
 const observed={time:'',day:'',battery:null,connection:''};
-let state='intro',stream=null,facing='environment',countdownHandle=null,timerHandle=null,recognition=null,cameraAttempt=0;
+let state='intro',trainingMode='camera',stream=null,facing='environment',countdownHandle=null,timerHandle=null,recognition=null,cameraAttempt=0;
 let currentPromptText='',visualProfile=BokeScoring.neutralVisual(),promptShownAt=0,responseMs=0;
 let baselineTotal=null,lastResult=null,lastTip=null,sessionCount=0,pendingSource='',stockObjectUrl='';
 
@@ -27,9 +27,11 @@ async function observeSafeWorld(){
   const items=[observed.day,observed.time,observed.battery!=null?`電池 ${observed.battery}%`:null,observed.connection?`通信 ${observed.connection}`:null].filter(Boolean);
   const host=$('#observations');host.replaceChildren(...items.map(text=>{const span=document.createElement('span');span.textContent=text;return span}));
 }
-function begin(){
-  sound(330,.08);$('#start').classList.add('gone');setState('idle');observeSafeWorld();
-  $('#shutter').disabled=false;setStatus('撮影ボタンでカメラを起動、またはフリー画像を選択');
+async function beginMode(mode){
+  if(!['camera','stock'].includes(mode))return;trainingMode=mode;document.body.dataset.mode=mode;sound(330,.08);$('#start').classList.add('gone');setState('idle');observeSafeWorld();
+  $('#modeBadge').textContent=mode==='camera'?'写真で一言':'フリー素材大喜利';$('#newPhotoBtn').textContent=mode==='camera'?'次の写真で一言へ':'次のフリー素材へ';
+  if(mode==='stock'){$('#shutter').hidden=true;$('#flipBtn').hidden=true;$('#stockBtn').hidden=true;$('#prompt').textContent='フリー素材を選んでいます…';setStatus('フリー素材を安全確認しながら探索中…');await loadStockImage();return}
+  $('#shutter').hidden=false;$('#shutter').disabled=false;$('#flipBtn').hidden=false;$('#flipBtn').disabled=false;$('#stockBtn').hidden=true;$('#prompt').textContent='目の前の何かを撮ってください。';setStatus('撮影ボタンでカメラを起動');
 }
 function waitForVideoReady(){return new Promise((resolve,reject)=>{
   if(video.readyState>=2&&video.videoWidth)return resolve();
@@ -39,7 +41,7 @@ function waitForVideoReady(){return new Promise((resolve,reject)=>{
   video.addEventListener('loadeddata',ready,{once:true});video.addEventListener('error',failed,{once:true});
 })}
 async function startCamera(){
-  if(!navigator.mediaDevices?.getUserMedia){setStatus('この端末ではカメラを使えません。フリー画像で遊べます');return}
+  if(!navigator.mediaDevices?.getUserMedia){setStatus('この端末ではカメラを使えません。モード選択に戻るとフリー素材で遊べます');return}
   setState('camera-starting');$('#shutter').disabled=true;$('#flipBtn').disabled=true;setStatus('カメラを準備中…');
   const attempt=++cameraAttempt;try{
     if(stream)stream.getTracks().forEach(track=>track.stop());stream=null;video.srcObject=null;
@@ -50,7 +52,7 @@ async function startCamera(){
     setState('camera-ready');$('#shutter').disabled=false;$('#flipBtn').disabled=false;setStatus('シャッターを押して撮影');
   }catch(error){
     if(attempt!==cameraAttempt)return;stopCamera();setState('idle');$('#shutter').disabled=false;$('#flipBtn').disabled=false;
-    setStatus(error?.name==='NotAllowedError'?'カメラが許可されていません。フリー画像でも遊べます':'カメラを起動できません。もう一度試すかフリー画像を選んでください');
+    setStatus(error?.name==='NotAllowedError'?'カメラが許可されていません。モード選択に戻るとフリー素材で遊べます':'カメラを起動できません。モード選択に戻るとフリー素材で遊べます');
   }
 }
 function onShutter(){if(state==='idle')startCamera();else if(state==='camera-ready')startCountdown()}
@@ -100,8 +102,8 @@ async function loadStockImage(){
   try{
     const query=stockQueries[Math.floor(Math.random()*stockQueries.length)],params=new URLSearchParams({q:query,license:'cc0,pdm',page_size:'20',mature:'false'});
     const response=await fetchWithTimeout(`https://api.openverse.org/v1/images/?${params}`,{cache:'no-store',credentials:'omit'});if(!response.ok)throw new Error('search failed');
-    const data=await response.json(),blocked=/person|people|portrait|woman|women|man|men|boy|girl|child|crowd|human|face|model|adult|人物|人間|男性|女性|子供|子ども/i;
-    const candidates=(Array.isArray(data.results)?data.results:[]).filter(item=>validOpenverseAsset(item.thumbnail)&&validHttpsUrl(item.foreign_landing_url)&&['cc0','pdm'].includes(String(item.license).toLowerCase())&&!blocked.test(`${item.title||''} ${(item.tags||[]).map(tag=>tag.name||'').join(' ')}`));
+    const data=await response.json(),blockedMinor=/child|children|kid|kids|minor|infant|baby|boy|girl|子供|子ども|幼児|赤ちゃん/i;
+    const candidates=(Array.isArray(data.results)?data.results:[]).filter(item=>validOpenverseAsset(item.thumbnail)&&validHttpsUrl(item.foreign_landing_url)&&['cc0','pdm'].includes(String(item.license).toLowerCase())&&!blockedMinor.test(`${item.title||''} ${(item.tags||[]).map(tag=>tag.name||'').join(' ')}`));
     if(!candidates.length)throw new Error('no safe image');const image=candidates[Math.floor(Math.random()*Math.min(candidates.length,10))];
     const imageUrl=validOpenverseAsset(image.thumbnail);const imageResponse=await fetchWithTimeout(imageUrl.href,{cache:'no-store',credentials:'omit'},8000);if(!imageResponse.ok)throw new Error('image failed');
     const type=(imageResponse.headers.get('content-type')||'').toLowerCase(),declared=Number(imageResponse.headers.get('content-length')||0);if(!type.startsWith('image/')||type.includes('svg')||declared>MAX_IMAGE_BYTES)throw new Error('invalid image');
@@ -110,7 +112,7 @@ async function loadStockImage(){
     await new Promise((resolve,reject)=>{img.onload=resolve;img.onerror=reject;img.src=stockObjectUrl});
     const hint=`${image.title||''} ${(image.tags||[]).map(tag=>tag.name||'').join(' ')}`;visualProfile=analyzeSource(img,hint);pendingSource='stock';
     $('#cameraStage').classList.add('camera-ready','captured','using-stock');const credit=$('#attribution');credit.textContent=`${String(image.title||'Untitled').slice(0,80)} — ${String(image.creator||'作者不明').slice(0,60)} / ${String(image.license).toUpperCase()} / Openverse`;credit.href=validHttpsUrl(image.foreign_landing_url).href;credit.classList.add('show');
-    const people=await detectPeople(img);if(people==='found'){throw new Error('people detected')}await requestPhotoConfirmation(people);
+    setState('prompt');newPrompt();
   }catch{makeOfflineImage()}finally{btn.disabled=false;$('#shutter').disabled=false}
 }
 function makeOfflineImage(){
@@ -121,7 +123,7 @@ function makeOfflineImage(){
   const credit=$('#attribution');credit.removeAttribute('href');credit.textContent='通信できないため、端末内で画像を生成しました（保存なし）';credit.classList.add('show','offline-mark');setState('prompt');newPrompt();
 }
 function newPrompt(){
-  if(!currentPromptText||baselineTotal===null)currentPromptText=prompts[Math.floor(Math.random()*prompts.length)];
+  if(!currentPromptText||baselineTotal===null)currentPromptText=trainingMode==='camera'?'この写真で一言。':prompts[Math.floor(Math.random()*prompts.length)];
   $('#prompt').textContent=currentPromptText;$('#shutter').hidden=true;$('#stockBtn').hidden=true;$('#answerBtn').hidden=false;$('#textAnswerBtn').hidden=false;$('#textEntry').hidden=true;$('#answerText').textContent='……';$('#answerCard').classList.remove('show');
   promptShownAt=Date.now();setState('prompt');setStatus(SpeechRecognition?'声または文字で、まずは直感から':'音声認識に非対応です。文字で回答できます');
 }
@@ -157,7 +159,13 @@ function retryTraining(){
 }
 async function resetRound(){
   $('#result').classList.remove('show');baselineTotal=null;lastResult=null;lastTip=null;currentPromptText='';pendingSource='';visualProfile=BokeScoring.neutralVisual();revokeStockUrl();
-  $('#cameraStage').classList.remove('captured','using-stock','camera-ready');$('#stockImage').removeAttribute('src');$('#attribution').className='attribution';$('#attribution').removeAttribute('href');$('#confirmPhotoBtn').hidden=true;$('#flipBtn').hidden=false;$('#flipBtn').disabled=false;$('#shutter').hidden=false;$('#shutter').disabled=false;$('#stockBtn').hidden=false;$('#stockBtn').disabled=false;$('#answerBtn').hidden=true;$('#textAnswerBtn').hidden=true;$('#textEntry').hidden=true;$('#prompt').textContent='目の前の何かを撮るか、フリー画像を選んでください。';setState('idle');setStatus('撮影ボタンでカメラを起動、またはフリー画像を選択');
+  $('#cameraStage').classList.remove('captured','using-stock','camera-ready');$('#stockImage').removeAttribute('src');$('#attribution').className='attribution';$('#attribution').removeAttribute('href');$('#confirmPhotoBtn').hidden=true;$('#answerBtn').hidden=true;$('#textAnswerBtn').hidden=true;$('#textEntry').hidden=true;$('#stockBtn').disabled=false;setState('idle');
+  if(trainingMode==='stock'){$('#flipBtn').hidden=true;$('#shutter').hidden=true;$('#stockBtn').hidden=true;$('#prompt').textContent='フリー素材を選んでいます…';setStatus('次のフリー素材を探索中…');await loadStockImage();return}
+  $('#flipBtn').hidden=false;$('#flipBtn').disabled=false;$('#shutter').hidden=false;$('#shutter').disabled=false;$('#stockBtn').hidden=true;$('#prompt').textContent='目の前の何かを撮ってください。';setStatus('撮影ボタンでカメラを起動');
+}
+function returnToModeSelect(){
+  clearInterval(countdownHandle);countdownHandle=null;stopListeningUi();stopCamera();revokeStockUrl();$('#result').classList.remove('show');$('#judging').classList.remove('show');$('#start').classList.remove('gone');baselineTotal=null;lastResult=null;lastTip=null;currentPromptText='';pendingSource='';visualProfile=BokeScoring.neutralVisual();delete document.body.dataset.mode;
+  $('#cameraStage').classList.remove('captured','using-stock','camera-ready');$('#stockImage').removeAttribute('src');$('#attribution').className='attribution';$('#attribution').removeAttribute('href');$('#confirmPhotoBtn').hidden=true;$('#answerBtn').hidden=true;$('#textAnswerBtn').hidden=true;$('#textEntry').hidden=true;$('#flipBtn').hidden=false;$('#shutter').hidden=false;$('#stockBtn').hidden=false;$('#modeBadge').textContent='モードを選択';$('#prompt').textContent='まずはトレーニングモードを選んでください。';setState('intro');setStatus('モードを選択してください');
 }
 function recordCalibration(type){
   if(!lastTip||!['near','far'].includes(type))return;const data=safeLoad();data.feedback=data.feedback&&typeof data.feedback==='object'?data.feedback:{};const vote=data.feedback[lastTip.key]||{near:0,far:0};vote[type]=Math.min(99,(Number(vote[type])||0)+1);data.feedback[lastTip.key]=vote;
@@ -165,10 +173,10 @@ function recordCalibration(type){
 }
 function clearLocalData(){try{localStorage.removeItem(STORAGE_KEY)}catch{}$('#best').textContent='—';$('#clearDataBtn').textContent='削除しました';setTimeout(()=>{$('#clearDataBtn').textContent='端末内の記録を削除'},1600)}
 
-$('#startBtn').addEventListener('click',begin);$('#shutter').addEventListener('click',onShutter);$('#stockBtn').addEventListener('click',loadStockImage);$('#confirmPhotoBtn').addEventListener('click',approvePhoto);$('#answerBtn').addEventListener('click',startAnswer);$('#textAnswerBtn').addEventListener('click',()=>{setState('text-ready');showTextEntry()});
+$('#cameraModeBtn').addEventListener('click',()=>beginMode('camera'));$('#stockModeBtn').addEventListener('click',()=>beginMode('stock'));$('#shutter').addEventListener('click',onShutter);$('#stockBtn').addEventListener('click',loadStockImage);$('#confirmPhotoBtn').addEventListener('click',approvePhoto);$('#answerBtn').addEventListener('click',startAnswer);$('#textAnswerBtn').addEventListener('click',()=>{setState('text-ready');showTextEntry()});
 $('#textEntry').addEventListener('submit',event=>{event.preventDefault();finishAnswer($('#answerInput').value);$('#answerInput').value=''});
 $('#flipBtn').addEventListener('click',async()=>{if(state!=='camera-ready')return;facing=facing==='environment'?'user':'environment';await startCamera()});
-$('#nearBtn').addEventListener('click',()=>recordCalibration('near'));$('#farBtn').addEventListener('click',()=>recordCalibration('far'));$('#retryBtn').addEventListener('click',retryTraining);$('#newPhotoBtn').addEventListener('click',resetRound);$('#clearDataBtn').addEventListener('click',clearLocalData);
+$('#nearBtn').addEventListener('click',()=>recordCalibration('near'));$('#farBtn').addEventListener('click',()=>recordCalibration('far'));$('#retryBtn').addEventListener('click',retryTraining);$('#newPhotoBtn').addEventListener('click',resetRound);$('#changeModeBtn').addEventListener('click',returnToModeSelect);$('#clearDataBtn').addEventListener('click',clearLocalData);
 document.addEventListener('visibilitychange',()=>{if(document.hidden){clearInterval(countdownHandle);countdownHandle=null;$('#countdown').textContent='';stopCamera();if(['camera-ready','camera-starting','countdown','validating'].includes(state)){setState('idle');$('#cameraStage').classList.remove('camera-ready','captured');$('#shutter').hidden=false;$('#shutter').disabled=false;$('#flipBtn').hidden=false;$('#flipBtn').disabled=false;setStatus('カメラを停止しました。撮影ボタンで再開できます')}}});
 addEventListener('pagehide',()=>{stopCamera();revokeStockUrl()});
 const initial=profile();$('#best').textContent=initial.best?`${initial.best}点`:'—';if(!SpeechRecognition)$('#answerBtn b').textContent='文字でボケる';
