@@ -1,6 +1,6 @@
 'use strict';
 const VERSION='0.1.0';
-const REVISION='r8';
+const REVISION='r9';
 const CACHE=`boke-training-v${VERSION}-${REVISION}`;
 const ASSET_QUERY=`?v=${VERSION}-${REVISION}`;
 const SHELL=['./','./index.html',`./style.css${ASSET_QUERY}`,`./enhancements.css${ASSET_QUERY}`,`./scoring-core.js${ASSET_QUERY}`,`./pwa-ui.js${ASSET_QUERY}`,`./game.js${ASSET_QUERY}`,`./manifest.webmanifest${ASSET_QUERY}`,'./assets/icon-192.png','./assets/icon-512.png'];

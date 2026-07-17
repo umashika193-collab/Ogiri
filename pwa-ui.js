@@ -11,6 +11,7 @@ const installHelp=document.querySelector('#installHelp');
 
 function isStandalonePwa(){return matchMedia('(display-mode: standalone)').matches||navigator.standalone===true}
 function isIosBrowser(){return /iphone|ipad|ipod/i.test(navigator.userAgent)&&!window.MSStream}
+function isLineBrowser(){return /Line\//i.test(navigator.userAgent||'')||/line\.me/i.test(document.referrer||'')}
 function isEmbeddedBrowser(){
   const ua=navigator.userAgent||'',referrer=document.referrer||'';
   return /FBAN|FBAV|Instagram|Line\/|Twitter|MicroMessenger|TikTok|Snapchat|; wv\)|\bwv\b|WebView|Electron/i.test(ua)||/l\.facebook\.com|instagram\.com|line\.me|t\.co/i.test(referrer);
@@ -27,10 +28,12 @@ function renderPwaPanel(){
   installHelp.hidden=true;
   if(isStandalonePwa()){pwaPanel.hidden=true;return}
   pwaPanel.hidden=false;
-  const appUrl=new URL('.',location.href).href;openBrowserBtn.href=appUrl;
+  const appUrl=new URL('.',location.href),lineBrowser=isLineBrowser();
+  if(lineBrowser)appUrl.searchParams.set('openExternalBrowser','1');
+  openBrowserBtn.href=appUrl.href;openBrowserBtn.target=lineBrowser?'_self':'_blank';
   if(isEmbeddedBrowser()){
     pwaTitle.textContent='標準ブラウザで開いてください';
-    pwaMessage.textContent='カメラ・音声・インストールを安定して使うため、Safari／Chrome／Edgeで開き直してください。';
+    pwaMessage.textContent=lineBrowser?'下のボタンで端末の標準ブラウザへ移動します。動かない場合は、LINE右上のメニューから「デフォルトのブラウザで開く」を選んでください。':'カメラ・音声・インストールを安定して使うため、Safari／Chrome／Edgeで開き直してください。';
     setPwaControls({open:true,copy:true});return;
   }
   pwaTitle.textContent='アプリとして使えます';
