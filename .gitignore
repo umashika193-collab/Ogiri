@@ -1,0 +1,18 @@
+.tools/
+.agents/
+.server.log
+.server.err
+
+# 旧プロトタイプのテストプレイ成果物（ローカル確認専用）
+testplay.html
+testplay.webp
+testplay-preview.png
+testplay-frames/
+
+# Local environment / generated output
+.env
+.env.*
+node_modules/
+coverage/
+Thumbs.db
+.DS_Store

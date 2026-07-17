@@ -1,0 +1,12 @@
+{
+  "name": "ボケトレ！ 森羅万象・大喜利トレーニング",
+  "short_name": "ボケトレ",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f2eddf",
+  "theme_color": "#ffd733",
+  "lang": "ja"
+}
