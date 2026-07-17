@@ -1,8 +1,8 @@
 # ボケトレ！— 森羅万象・大喜利トレーニング
 
-身近な物・風景・偶然の構図を教材にする、スマートフォン向け大喜利トレーニングPWAです。カメラ撮影では人物を対象外とし、著作権上安全なフリー画像では人物も教材にできます。声か文字で回答すると、10種類の評価軸から採点・改善ヒント・再挑戦時の伸び幅を確認できます。
+身近な物・風景・偶然の構図を教材にする、スマートフォン向け大喜利トレーニングPWAです。カメラ撮影では人物を対象外とし、著作権上安全なフリー画像では人物も教材にできます。声か文字で回答すると、12種類の特徴量を使った10のトレーニング視点から採点・改善ヒント・再挑戦時の伸び幅を確認できます。
 
-実在人物本人を再現する製品ではありません。画面上の伏字コーチは、発想・毒と短さ・構造と速度・伝達・違和感・完成度・即効性・情景・設定・言葉という独立した評価タイプです。
+実在人物本人を再現する製品ではありません。画面上の伏字コーチは、発想・毒と短さ・構造と速度・観察・異物感・完成度・選択・情景・設定・言葉という独立した評価タイプです。
 
 ## 遊び方
 
@@ -21,6 +21,10 @@
 - お題の型への適合
 - 意外性、ひねり、短さ、明瞭さ、リズム
 - 回答速度、具体性、エッジ
+
+12軸の共通基準を全得点の60%とし、残り40%へ人物別の研究重みを使います。人物別部分は資料確信度に応じて共通基準へ自動的に寄せます。確信度は本人再現率ではなく、判断基準を公開資料からどれだけ説明できるかを表します。
+
+審査員設定は同一サイトの版管理されたJSONから読み込み、12軸・合計値・名前・重複・文字列を検証したものだけを採用します。通信失敗時は最後の検証済み設定、さらに失敗した場合は内蔵設定で採点を続けます。
 
 点数はユーモアの絶対評価ではなく、反復練習の比較指標です。「役立つ／微妙」の評価は、次回の改善ヒント選びへ端末内で反映されます。
 
@@ -51,13 +55,34 @@ python -m http.server 4173
 
 `http://127.0.0.1:4173/` をスマートフォン相当のブラウザで開いてください。カメラなど一部機能はHTTPSまたはlocalhost系の安全なコンテキストが必要です。
 
+## 審査基準の調査資料
+
+- 人が読める調査書: [`research/judge-criteria-research.md`](research/judge-criteria-research.md)
+- 松本◯志の追加調査: [`research/matsumoto-deep-dive.md`](research/matsumoto-deep-dive.md)
+- 有吉◯行の追加調査: [`research/ariyoshi-deep-dive.md`](research/ariyoshi-deep-dive.md)
+- 審査員交代の調査記録: [`research/replacement-candidates.md`](research/replacement-candidates.md)
+- 実行中の版管理済み重みデータ: [`research/judge-criteria.json`](research/judge-criteria.json)
+- 人間評価用200回答: [`research/validation-set.json`](research/validation-set.json)
+
+12軸の重みデータは実行時に読み込まれます。公開資料にない人格・口調・私生活はモデル化しません。
+
+## 匿名評価
+
+`http://127.0.0.1:4173/validation.html` で、10題×20回答を12軸と総合点で匿名評価できます。3人以上の評価JSONを集めた後、次の形式で評価者間一致とモデル点との順位相関を確認します。
+
+```powershell
+node scripts/analyze-ratings.js ratings-a.json ratings-b.json ratings-c.json
+```
+
+評価者が3人未満の場合、解析結果は `needs-more-human-raters` となり、検証完了とは扱いません。
+
 ## テスト
 
 ```powershell
 node --check scoring-core.js
 node --check game.js
 node --check service-worker.js
-node --test tests/scoring.test.js
+node --test tests/pwa-ui.test.js tests/scoring.test.js
 ```
 
 採点の再現性、写真・お題による変化、ヒント評価の反映、画像特徴分類を検証します。

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'">
+  <title>ボケトレ！匿名評価</title>
+  <link rel="stylesheet" href="validation.css?v=0.1.0-r15">
+</head>
+<body>
+  <main>
+    <header><b>ボケトレ！匿名評価</b><span id="progress">準備中</span></header>
+    <section id="setup">
+      <h1>採点精度を測る</h1>
+      <p>回答者名や審査員名を見ず、純粋に回答を評価します。端末内に途中保存し、終了後にJSONをダウンロードします。</p>
+      <label>評価者ID<input id="raterId" maxlength="24" autocomplete="off" placeholder="例：tester-a"></label>
+      <button id="startBtn" type="button">評価を始める</button>
+    </section>
+    <section id="rating" hidden>
+      <div id="visualDescription"></div><p id="prompt"></p><h2 id="answer"></h2>
+      <div id="scales"></div>
+      <div class="actions"><button id="prevBtn" type="button">戻る</button><button id="nextBtn" type="button">保存して次へ</button></div>
+      <button id="exportBtn" class="secondary" type="button">現在の結果をダウンロード</button>
+    </section>
+  </main>
+  <script src="validation.js?v=0.1.0-r15"></script>
+</body>
+</html>

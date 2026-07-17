@@ -1,0 +1,3981 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-17",
+  "purpose": "人間による匿名評価用。回答は検証専用の人工例であり番組・記事から転載していない。",
+  "dimensions": [
+    "promptFit",
+    "clarity",
+    "brevity",
+    "novelty",
+    "surprise",
+    "twist",
+    "specificity",
+    "escalation",
+    "rhythm",
+    "visualGrounding",
+    "instant",
+    "edge"
+  ],
+  "items": [
+    {
+      "id": "p01-a01",
+      "promptId": "p01",
+      "visualDescription": "明るい会議室に、椅子が一脚だけ置かれている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "光",
+          "白",
+          "会議室",
+          "椅子"
+        ]
+      },
+      "prompt": "この写真で一言。",
+      "answer": "校長だけ有料です。"
+    },
+    {
+      "id": "p01-a02",
+      "promptId": "p01",
+      "visualDescription": "明るい会議室に、椅子が一脚だけ置かれている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "光",
+          "白",
+          "会議室",
+          "椅子"
+        ]
+      },
+      "prompt": "この写真で一言。",
+      "answer": "実家では、町内会長が最後に届きました。"
+    },
+    {
+      "id": "p01-a03",
+      "promptId": "p01",
+      "visualDescription": "明るい会議室に、椅子が一脚だけ置かれている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "光",
+          "白",
+          "会議室",
+          "椅子"
+        ]
+      },
+      "prompt": "この写真で一言。",
+      "answer": "実は未来の店長の休憩時間です。"
+    },
+    {
+      "id": "p01-a04",
+      "promptId": "p01",
+      "visualDescription": "明るい会議室に、椅子が一脚だけ置かれている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "光",
+          "白",
+          "会議室",
+          "椅子"
+        ]
+      },
+      "prompt": "この写真で一言。",
+      "answer": "月曜だけ来る神様、しかも二度目です。"
+    },
+    {
+      "id": "p01-a05",
+      "promptId": "p01",
+      "visualDescription": "明るい会議室に、椅子が一脚だけ置かれている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "光",
+          "白",
+          "会議室",
+          "椅子"
+        ]
+      },
+      "prompt": "この写真で一言。",
+      "answer": "「写真」改め「新人AIの経費」です。"
+    },
+    {
+      "id": "p01-a06",
+      "promptId": "p01",
+      "visualDescription": "明るい会議室に、椅子が一脚だけ置かれている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "光",
+          "白",
+          "会議室",
+          "椅子"
+        ]
+      },
+      "prompt": "この写真で一言。",
+      "answer": "給食室支店だけ、入口が出口です。"
+    },
+    {
+      "id": "p01-a07",
+      "promptId": "p01",
+      "visualDescription": "明るい会議室に、椅子が一脚だけ置かれている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "光",
+          "白",
+          "会議室",
+          "椅子"
+        ]
+      },
+      "prompt": "この写真で一言。",
+      "answer": "昭和のロボットが最後に電源を抜きました。"
+    },
+    {
+      "id": "p01-a08",
+      "promptId": "p01",
+      "visualDescription": "明るい会議室に、椅子が一脚だけ置かれている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "光",
+          "白",
+          "会議室",
+          "椅子"
+        ]
+      },
+      "prompt": "この写真で一言。",
+      "answer": "今なら無職の王様を二人セットで無料配送。"
+    },
+    {
+      "id": "p01-a09",
+      "promptId": "p01",
+      "visualDescription": "明るい会議室に、椅子が一脚だけ置かれている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "光",
+          "白",
+          "会議室",
+          "椅子"
+        ]
+      },
+      "prompt": "この写真で一言。",
+      "answer": "二代目の雲のせいで、百年後も仮オープンです。"
+    },
+    {
+      "id": "p01-a10",
+      "promptId": "p01",
+      "visualDescription": "明るい会議室に、椅子が一脚だけ置かれている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "光",
+          "白",
+          "会議室",
+          "椅子"
+        ]
+      },
+      "prompt": "この写真で一言。",
+      "answer": "写真外で市役所の忍者が返品交渉中です。"
+    },
+    {
+      "id": "p01-a11",
+      "promptId": "p01",
+      "visualDescription": "明るい会議室に、椅子が一脚だけ置かれている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "光",
+          "白",
+          "会議室",
+          "椅子"
+        ]
+      },
+      "prompt": "この写真で一言。",
+      "answer": "校長だけ有料です。"
+    },
+    {
+      "id": "p01-a12",
+      "promptId": "p01",
+      "visualDescription": "明るい会議室に、椅子が一脚だけ置かれている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "光",
+          "白",
+          "会議室",
+          "椅子"
+        ]
+      },
+      "prompt": "この写真で一言。",
+      "answer": "実家では、町内会長が最後に届きました。"
+    },
+    {
+      "id": "p01-a13",
+      "promptId": "p01",
+      "visualDescription": "明るい会議室に、椅子が一脚だけ置かれている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "光",
+          "白",
+          "会議室",
+          "椅子"
+        ]
+      },
+      "prompt": "この写真で一言。",
+      "answer": "実は未来の店長の休憩時間です。"
+    },
+    {
+      "id": "p01-a14",
+      "promptId": "p01",
+      "visualDescription": "明るい会議室に、椅子が一脚だけ置かれている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "光",
+          "白",
+          "会議室",
+          "椅子"
+        ]
+      },
+      "prompt": "この写真で一言。",
+      "answer": "月曜だけ来る神様、しかも二度目です。"
+    },
+    {
+      "id": "p01-a15",
+      "promptId": "p01",
+      "visualDescription": "明るい会議室に、椅子が一脚だけ置かれている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "光",
+          "白",
+          "会議室",
+          "椅子"
+        ]
+      },
+      "prompt": "この写真で一言。",
+      "answer": "「写真」改め「新人AIの経費」です。"
+    },
+    {
+      "id": "p01-a16",
+      "promptId": "p01",
+      "visualDescription": "明るい会議室に、椅子が一脚だけ置かれている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "光",
+          "白",
+          "会議室",
+          "椅子"
+        ]
+      },
+      "prompt": "この写真で一言。",
+      "answer": "給食室支店だけ、入口が出口です。"
+    },
+    {
+      "id": "p01-a17",
+      "promptId": "p01",
+      "visualDescription": "明るい会議室に、椅子が一脚だけ置かれている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "光",
+          "白",
+          "会議室",
+          "椅子"
+        ]
+      },
+      "prompt": "この写真で一言。",
+      "answer": "昭和のロボットが最後に電源を抜きました。"
+    },
+    {
+      "id": "p01-a18",
+      "promptId": "p01",
+      "visualDescription": "明るい会議室に、椅子が一脚だけ置かれている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "光",
+          "白",
+          "会議室",
+          "椅子"
+        ]
+      },
+      "prompt": "この写真で一言。",
+      "answer": "今なら無職の王様を二人セットで無料配送。"
+    },
+    {
+      "id": "p01-a19",
+      "promptId": "p01",
+      "visualDescription": "明るい会議室に、椅子が一脚だけ置かれている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "光",
+          "白",
+          "会議室",
+          "椅子"
+        ]
+      },
+      "prompt": "この写真で一言。",
+      "answer": "二代目の雲のせいで、百年後も仮オープンです。"
+    },
+    {
+      "id": "p01-a20",
+      "promptId": "p01",
+      "visualDescription": "明るい会議室に、椅子が一脚だけ置かれている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "光",
+          "白",
+          "会議室",
+          "椅子"
+        ]
+      },
+      "prompt": "この写真で一言。",
+      "answer": "写真外で市役所の忍者が返品交渉中です。"
+    },
+    {
+      "id": "p02-a01",
+      "promptId": "p02",
+      "visualDescription": "夜のコンビニ前に、赤い傘が一本だけ立っている。",
+      "visual": {
+        "labels": [
+          "dark",
+          "warm",
+          "calm"
+        ],
+        "lexemes": [
+          "夜",
+          "黒",
+          "赤",
+          "傘",
+          "コンビニ"
+        ]
+      },
+      "prompt": "この場所の絶対に守られていないルールとは？",
+      "answer": "町内会長が先に謝りました。"
+    },
+    {
+      "id": "p02-a02",
+      "promptId": "p02",
+      "visualDescription": "夜のコンビニ前に、赤い傘が一本だけ立っている。",
+      "visual": {
+        "labels": [
+          "dark",
+          "warm",
+          "calm"
+        ],
+        "lexemes": [
+          "夜",
+          "黒",
+          "赤",
+          "傘",
+          "コンビニ"
+        ]
+      },
+      "prompt": "この場所の絶対に守られていないルールとは？",
+      "answer": "終電では、未来の店長を校長が却下しました。"
+    },
+    {
+      "id": "p02-a03",
+      "promptId": "p02",
+      "visualDescription": "夜のコンビニ前に、赤い傘が一本だけ立っている。",
+      "visual": {
+        "labels": [
+          "dark",
+          "warm",
+          "calm"
+        ],
+        "lexemes": [
+          "夜",
+          "黒",
+          "赤",
+          "傘",
+          "コンビニ"
+        ]
+      },
+      "prompt": "この場所の絶対に守られていないルールとは？",
+      "answer": "実は月曜だけ来る神様の休憩時間です。"
+    },
+    {
+      "id": "p02-a04",
+      "promptId": "p02",
+      "visualDescription": "夜のコンビニ前に、赤い傘が一本だけ立っている。",
+      "visual": {
+        "labels": [
+          "dark",
+          "warm",
+          "calm"
+        ],
+        "lexemes": [
+          "夜",
+          "黒",
+          "赤",
+          "傘",
+          "コンビニ"
+        ]
+      },
+      "prompt": "この場所の絶対に守られていないルールとは？",
+      "answer": "新人AI、しかも二度目です。"
+    },
+    {
+      "id": "p02-a05",
+      "promptId": "p02",
+      "visualDescription": "夜のコンビニ前に、赤い傘が一本だけ立っている。",
+      "visual": {
+        "labels": [
+          "dark",
+          "warm",
+          "calm"
+        ],
+        "lexemes": [
+          "夜",
+          "黒",
+          "赤",
+          "傘",
+          "コンビニ"
+        ]
+      },
+      "prompt": "この場所の絶対に守られていないルールとは？",
+      "answer": "「場所」改め「宇宙支店の母の経費」です。"
+    },
+    {
+      "id": "p02-a06",
+      "promptId": "p02",
+      "visualDescription": "夜のコンビニ前に、赤い傘が一本だけ立っている。",
+      "visual": {
+        "labels": [
+          "dark",
+          "warm",
+          "calm"
+        ],
+        "lexemes": [
+          "夜",
+          "黒",
+          "赤",
+          "傘",
+          "コンビニ"
+        ]
+      },
+      "prompt": "この場所の絶対に守られていないルールとは？",
+      "answer": "宇宙支店支店だけ、入口が出口です。"
+    },
+    {
+      "id": "p02-a07",
+      "promptId": "p02",
+      "visualDescription": "夜のコンビニ前に、赤い傘が一本だけ立っている。",
+      "visual": {
+        "labels": [
+          "dark",
+          "warm",
+          "calm"
+        ],
+        "lexemes": [
+          "夜",
+          "黒",
+          "赤",
+          "傘",
+          "コンビニ"
+        ]
+      },
+      "prompt": "この場所の絶対に守られていないルールとは？",
+      "answer": "無職の王様が最後に電源を抜きました。"
+    },
+    {
+      "id": "p02-a08",
+      "promptId": "p02",
+      "visualDescription": "夜のコンビニ前に、赤い傘が一本だけ立っている。",
+      "visual": {
+        "labels": [
+          "dark",
+          "warm",
+          "calm"
+        ],
+        "lexemes": [
+          "夜",
+          "黒",
+          "赤",
+          "傘",
+          "コンビニ"
+        ]
+      },
+      "prompt": "この場所の絶対に守られていないルールとは？",
+      "answer": "今なら二代目の雲を二人セットで無料配送。"
+    },
+    {
+      "id": "p02-a09",
+      "promptId": "p02",
+      "visualDescription": "夜のコンビニ前に、赤い傘が一本だけ立っている。",
+      "visual": {
+        "labels": [
+          "dark",
+          "warm",
+          "calm"
+        ],
+        "lexemes": [
+          "夜",
+          "黒",
+          "赤",
+          "傘",
+          "コンビニ"
+        ]
+      },
+      "prompt": "この場所の絶対に守られていないルールとは？",
+      "answer": "市役所の忍者のせいで、百年後も仮オープンです。"
+    },
+    {
+      "id": "p02-a10",
+      "promptId": "p02",
+      "visualDescription": "夜のコンビニ前に、赤い傘が一本だけ立っている。",
+      "visual": {
+        "labels": [
+          "dark",
+          "warm",
+          "calm"
+        ],
+        "lexemes": [
+          "夜",
+          "黒",
+          "赤",
+          "傘",
+          "コンビニ"
+        ]
+      },
+      "prompt": "この場所の絶対に守られていないルールとは？",
+      "answer": "写真外で校長が返品交渉中です。"
+    },
+    {
+      "id": "p02-a11",
+      "promptId": "p02",
+      "visualDescription": "夜のコンビニ前に、赤い傘が一本だけ立っている。",
+      "visual": {
+        "labels": [
+          "dark",
+          "warm",
+          "calm"
+        ],
+        "lexemes": [
+          "夜",
+          "黒",
+          "赤",
+          "傘",
+          "コンビニ"
+        ]
+      },
+      "prompt": "この場所の絶対に守られていないルールとは？",
+      "answer": "町内会長が先に謝りました。"
+    },
+    {
+      "id": "p02-a12",
+      "promptId": "p02",
+      "visualDescription": "夜のコンビニ前に、赤い傘が一本だけ立っている。",
+      "visual": {
+        "labels": [
+          "dark",
+          "warm",
+          "calm"
+        ],
+        "lexemes": [
+          "夜",
+          "黒",
+          "赤",
+          "傘",
+          "コンビニ"
+        ]
+      },
+      "prompt": "この場所の絶対に守られていないルールとは？",
+      "answer": "終電では、未来の店長を校長が却下しました。"
+    },
+    {
+      "id": "p02-a13",
+      "promptId": "p02",
+      "visualDescription": "夜のコンビニ前に、赤い傘が一本だけ立っている。",
+      "visual": {
+        "labels": [
+          "dark",
+          "warm",
+          "calm"
+        ],
+        "lexemes": [
+          "夜",
+          "黒",
+          "赤",
+          "傘",
+          "コンビニ"
+        ]
+      },
+      "prompt": "この場所の絶対に守られていないルールとは？",
+      "answer": "実は月曜だけ来る神様の休憩時間です。"
+    },
+    {
+      "id": "p02-a14",
+      "promptId": "p02",
+      "visualDescription": "夜のコンビニ前に、赤い傘が一本だけ立っている。",
+      "visual": {
+        "labels": [
+          "dark",
+          "warm",
+          "calm"
+        ],
+        "lexemes": [
+          "夜",
+          "黒",
+          "赤",
+          "傘",
+          "コンビニ"
+        ]
+      },
+      "prompt": "この場所の絶対に守られていないルールとは？",
+      "answer": "新人AI、しかも二度目です。"
+    },
+    {
+      "id": "p02-a15",
+      "promptId": "p02",
+      "visualDescription": "夜のコンビニ前に、赤い傘が一本だけ立っている。",
+      "visual": {
+        "labels": [
+          "dark",
+          "warm",
+          "calm"
+        ],
+        "lexemes": [
+          "夜",
+          "黒",
+          "赤",
+          "傘",
+          "コンビニ"
+        ]
+      },
+      "prompt": "この場所の絶対に守られていないルールとは？",
+      "answer": "「場所」改め「宇宙支店の母の経費」です。"
+    },
+    {
+      "id": "p02-a16",
+      "promptId": "p02",
+      "visualDescription": "夜のコンビニ前に、赤い傘が一本だけ立っている。",
+      "visual": {
+        "labels": [
+          "dark",
+          "warm",
+          "calm"
+        ],
+        "lexemes": [
+          "夜",
+          "黒",
+          "赤",
+          "傘",
+          "コンビニ"
+        ]
+      },
+      "prompt": "この場所の絶対に守られていないルールとは？",
+      "answer": "宇宙支店支店だけ、入口が出口です。"
+    },
+    {
+      "id": "p02-a17",
+      "promptId": "p02",
+      "visualDescription": "夜のコンビニ前に、赤い傘が一本だけ立っている。",
+      "visual": {
+        "labels": [
+          "dark",
+          "warm",
+          "calm"
+        ],
+        "lexemes": [
+          "夜",
+          "黒",
+          "赤",
+          "傘",
+          "コンビニ"
+        ]
+      },
+      "prompt": "この場所の絶対に守られていないルールとは？",
+      "answer": "無職の王様が最後に電源を抜きました。"
+    },
+    {
+      "id": "p02-a18",
+      "promptId": "p02",
+      "visualDescription": "夜のコンビニ前に、赤い傘が一本だけ立っている。",
+      "visual": {
+        "labels": [
+          "dark",
+          "warm",
+          "calm"
+        ],
+        "lexemes": [
+          "夜",
+          "黒",
+          "赤",
+          "傘",
+          "コンビニ"
+        ]
+      },
+      "prompt": "この場所の絶対に守られていないルールとは？",
+      "answer": "今なら二代目の雲を二人セットで無料配送。"
+    },
+    {
+      "id": "p02-a19",
+      "promptId": "p02",
+      "visualDescription": "夜のコンビニ前に、赤い傘が一本だけ立っている。",
+      "visual": {
+        "labels": [
+          "dark",
+          "warm",
+          "calm"
+        ],
+        "lexemes": [
+          "夜",
+          "黒",
+          "赤",
+          "傘",
+          "コンビニ"
+        ]
+      },
+      "prompt": "この場所の絶対に守られていないルールとは？",
+      "answer": "市役所の忍者のせいで、百年後も仮オープンです。"
+    },
+    {
+      "id": "p02-a20",
+      "promptId": "p02",
+      "visualDescription": "夜のコンビニ前に、赤い傘が一本だけ立っている。",
+      "visual": {
+        "labels": [
+          "dark",
+          "warm",
+          "calm"
+        ],
+        "lexemes": [
+          "夜",
+          "黒",
+          "赤",
+          "傘",
+          "コンビニ"
+        ]
+      },
+      "prompt": "この場所の絶対に守られていないルールとは？",
+      "answer": "写真外で校長が返品交渉中です。"
+    },
+    {
+      "id": "p03-a01",
+      "promptId": "p03",
+      "visualDescription": "青空の下、古い自動販売機が畑の中央にある。",
+      "visual": {
+        "labels": [
+          "bright",
+          "cool",
+          "calm"
+        ],
+        "lexemes": [
+          "青",
+          "空",
+          "自動販売機",
+          "畑"
+        ]
+      },
+      "prompt": "このあと起きた、最悪の出来事とは？",
+      "answer": "未来の店長は本日で終了です。"
+    },
+    {
+      "id": "p03-a02",
+      "promptId": "p03",
+      "visualDescription": "青空の下、古い自動販売機が畑の中央にある。",
+      "visual": {
+        "labels": [
+          "bright",
+          "cool",
+          "calm"
+        ],
+        "lexemes": [
+          "青",
+          "空",
+          "自動販売機",
+          "畑"
+        ]
+      },
+      "prompt": "このあと起きた、最悪の出来事とは？",
+      "answer": "給食室では、月曜だけ来る神様が実は代打でした。"
+    },
+    {
+      "id": "p03-a03",
+      "promptId": "p03",
+      "visualDescription": "青空の下、古い自動販売機が畑の中央にある。",
+      "visual": {
+        "labels": [
+          "bright",
+          "cool",
+          "calm"
+        ],
+        "lexemes": [
+          "青",
+          "空",
+          "自動販売機",
+          "畑"
+        ]
+      },
+      "prompt": "このあと起きた、最悪の出来事とは？",
+      "answer": "実は新人AIの休憩時間です。"
+    },
+    {
+      "id": "p03-a04",
+      "promptId": "p03",
+      "visualDescription": "青空の下、古い自動販売機が畑の中央にある。",
+      "visual": {
+        "labels": [
+          "bright",
+          "cool",
+          "calm"
+        ],
+        "lexemes": [
+          "青",
+          "空",
+          "自動販売機",
+          "畑"
+        ]
+      },
+      "prompt": "このあと起きた、最悪の出来事とは？",
+      "answer": "宇宙支店の母、しかも二度目です。"
+    },
+    {
+      "id": "p03-a05",
+      "promptId": "p03",
+      "visualDescription": "青空の下、古い自動販売機が畑の中央にある。",
+      "visual": {
+        "labels": [
+          "bright",
+          "cool",
+          "calm"
+        ],
+        "lexemes": [
+          "青",
+          "空",
+          "自動販売機",
+          "畑"
+        ]
+      },
+      "prompt": "このあと起きた、最悪の出来事とは？",
+      "answer": "「直後」改め「昭和のロボットの経費」です。"
+    },
+    {
+      "id": "p03-a06",
+      "promptId": "p03",
+      "visualDescription": "青空の下、古い自動販売機が畑の中央にある。",
+      "visual": {
+        "labels": [
+          "bright",
+          "cool",
+          "calm"
+        ],
+        "lexemes": [
+          "青",
+          "空",
+          "自動販売機",
+          "畑"
+        ]
+      },
+      "prompt": "このあと起きた、最悪の出来事とは？",
+      "answer": "校庭支店だけ、入口が出口です。"
+    },
+    {
+      "id": "p03-a07",
+      "promptId": "p03",
+      "visualDescription": "青空の下、古い自動販売機が畑の中央にある。",
+      "visual": {
+        "labels": [
+          "bright",
+          "cool",
+          "calm"
+        ],
+        "lexemes": [
+          "青",
+          "空",
+          "自動販売機",
+          "畑"
+        ]
+      },
+      "prompt": "このあと起きた、最悪の出来事とは？",
+      "answer": "二代目の雲が最後に電源を抜きました。"
+    },
+    {
+      "id": "p03-a08",
+      "promptId": "p03",
+      "visualDescription": "青空の下、古い自動販売機が畑の中央にある。",
+      "visual": {
+        "labels": [
+          "bright",
+          "cool",
+          "calm"
+        ],
+        "lexemes": [
+          "青",
+          "空",
+          "自動販売機",
+          "畑"
+        ]
+      },
+      "prompt": "このあと起きた、最悪の出来事とは？",
+      "answer": "今なら市役所の忍者を二人セットで無料配送。"
+    },
+    {
+      "id": "p03-a09",
+      "promptId": "p03",
+      "visualDescription": "青空の下、古い自動販売機が畑の中央にある。",
+      "visual": {
+        "labels": [
+          "bright",
+          "cool",
+          "calm"
+        ],
+        "lexemes": [
+          "青",
+          "空",
+          "自動販売機",
+          "畑"
+        ]
+      },
+      "prompt": "このあと起きた、最悪の出来事とは？",
+      "answer": "校長のせいで、百年後も仮オープンです。"
+    },
+    {
+      "id": "p03-a10",
+      "promptId": "p03",
+      "visualDescription": "青空の下、古い自動販売機が畑の中央にある。",
+      "visual": {
+        "labels": [
+          "bright",
+          "cool",
+          "calm"
+        ],
+        "lexemes": [
+          "青",
+          "空",
+          "自動販売機",
+          "畑"
+        ]
+      },
+      "prompt": "このあと起きた、最悪の出来事とは？",
+      "answer": "写真外で町内会長が返品交渉中です。"
+    },
+    {
+      "id": "p03-a11",
+      "promptId": "p03",
+      "visualDescription": "青空の下、古い自動販売機が畑の中央にある。",
+      "visual": {
+        "labels": [
+          "bright",
+          "cool",
+          "calm"
+        ],
+        "lexemes": [
+          "青",
+          "空",
+          "自動販売機",
+          "畑"
+        ]
+      },
+      "prompt": "このあと起きた、最悪の出来事とは？",
+      "answer": "未来の店長は本日で終了です。"
+    },
+    {
+      "id": "p03-a12",
+      "promptId": "p03",
+      "visualDescription": "青空の下、古い自動販売機が畑の中央にある。",
+      "visual": {
+        "labels": [
+          "bright",
+          "cool",
+          "calm"
+        ],
+        "lexemes": [
+          "青",
+          "空",
+          "自動販売機",
+          "畑"
+        ]
+      },
+      "prompt": "このあと起きた、最悪の出来事とは？",
+      "answer": "給食室では、月曜だけ来る神様が実は代打でした。"
+    },
+    {
+      "id": "p03-a13",
+      "promptId": "p03",
+      "visualDescription": "青空の下、古い自動販売機が畑の中央にある。",
+      "visual": {
+        "labels": [
+          "bright",
+          "cool",
+          "calm"
+        ],
+        "lexemes": [
+          "青",
+          "空",
+          "自動販売機",
+          "畑"
+        ]
+      },
+      "prompt": "このあと起きた、最悪の出来事とは？",
+      "answer": "実は新人AIの休憩時間です。"
+    },
+    {
+      "id": "p03-a14",
+      "promptId": "p03",
+      "visualDescription": "青空の下、古い自動販売機が畑の中央にある。",
+      "visual": {
+        "labels": [
+          "bright",
+          "cool",
+          "calm"
+        ],
+        "lexemes": [
+          "青",
+          "空",
+          "自動販売機",
+          "畑"
+        ]
+      },
+      "prompt": "このあと起きた、最悪の出来事とは？",
+      "answer": "宇宙支店の母、しかも二度目です。"
+    },
+    {
+      "id": "p03-a15",
+      "promptId": "p03",
+      "visualDescription": "青空の下、古い自動販売機が畑の中央にある。",
+      "visual": {
+        "labels": [
+          "bright",
+          "cool",
+          "calm"
+        ],
+        "lexemes": [
+          "青",
+          "空",
+          "自動販売機",
+          "畑"
+        ]
+      },
+      "prompt": "このあと起きた、最悪の出来事とは？",
+      "answer": "「直後」改め「昭和のロボットの経費」です。"
+    },
+    {
+      "id": "p03-a16",
+      "promptId": "p03",
+      "visualDescription": "青空の下、古い自動販売機が畑の中央にある。",
+      "visual": {
+        "labels": [
+          "bright",
+          "cool",
+          "calm"
+        ],
+        "lexemes": [
+          "青",
+          "空",
+          "自動販売機",
+          "畑"
+        ]
+      },
+      "prompt": "このあと起きた、最悪の出来事とは？",
+      "answer": "校庭支店だけ、入口が出口です。"
+    },
+    {
+      "id": "p03-a17",
+      "promptId": "p03",
+      "visualDescription": "青空の下、古い自動販売機が畑の中央にある。",
+      "visual": {
+        "labels": [
+          "bright",
+          "cool",
+          "calm"
+        ],
+        "lexemes": [
+          "青",
+          "空",
+          "自動販売機",
+          "畑"
+        ]
+      },
+      "prompt": "このあと起きた、最悪の出来事とは？",
+      "answer": "二代目の雲が最後に電源を抜きました。"
+    },
+    {
+      "id": "p03-a18",
+      "promptId": "p03",
+      "visualDescription": "青空の下、古い自動販売機が畑の中央にある。",
+      "visual": {
+        "labels": [
+          "bright",
+          "cool",
+          "calm"
+        ],
+        "lexemes": [
+          "青",
+          "空",
+          "自動販売機",
+          "畑"
+        ]
+      },
+      "prompt": "このあと起きた、最悪の出来事とは？",
+      "answer": "今なら市役所の忍者を二人セットで無料配送。"
+    },
+    {
+      "id": "p03-a19",
+      "promptId": "p03",
+      "visualDescription": "青空の下、古い自動販売機が畑の中央にある。",
+      "visual": {
+        "labels": [
+          "bright",
+          "cool",
+          "calm"
+        ],
+        "lexemes": [
+          "青",
+          "空",
+          "自動販売機",
+          "畑"
+        ]
+      },
+      "prompt": "このあと起きた、最悪の出来事とは？",
+      "answer": "校長のせいで、百年後も仮オープンです。"
+    },
+    {
+      "id": "p03-a20",
+      "promptId": "p03",
+      "visualDescription": "青空の下、古い自動販売機が畑の中央にある。",
+      "visual": {
+        "labels": [
+          "bright",
+          "cool",
+          "calm"
+        ],
+        "lexemes": [
+          "青",
+          "空",
+          "自動販売機",
+          "畑"
+        ]
+      },
+      "prompt": "このあと起きた、最悪の出来事とは？",
+      "answer": "写真外で町内会長が返品交渉中です。"
+    },
+    {
+      "id": "p04-a01",
+      "promptId": "p04",
+      "visualDescription": "左右対称の階段に、黄色い箱が置かれている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "colorful",
+          "symmetric"
+        ],
+        "lexemes": [
+          "左右",
+          "対称",
+          "階段",
+          "黄",
+          "箱"
+        ]
+      },
+      "prompt": "これが世界遺産になった理由とは？",
+      "answer": "月曜だけ来る神様を三回まで認めます。"
+    },
+    {
+      "id": "p04-a02",
+      "promptId": "p04",
+      "visualDescription": "左右対称の階段に、黄色い箱が置かれている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "colorful",
+          "symmetric"
+        ],
+        "lexemes": [
+          "左右",
+          "対称",
+          "階段",
+          "黄",
+          "箱"
+        ]
+      },
+      "prompt": "これが世界遺産になった理由とは？",
+      "answer": "宇宙支店では、新人AIだけ有料です。"
+    },
+    {
+      "id": "p04-a03",
+      "promptId": "p04",
+      "visualDescription": "左右対称の階段に、黄色い箱が置かれている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "colorful",
+          "symmetric"
+        ],
+        "lexemes": [
+          "左右",
+          "対称",
+          "階段",
+          "黄",
+          "箱"
+        ]
+      },
+      "prompt": "これが世界遺産になった理由とは？",
+      "answer": "実は宇宙支店の母の休憩時間です。"
+    },
+    {
+      "id": "p04-a04",
+      "promptId": "p04",
+      "visualDescription": "左右対称の階段に、黄色い箱が置かれている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "colorful",
+          "symmetric"
+        ],
+        "lexemes": [
+          "左右",
+          "対称",
+          "階段",
+          "黄",
+          "箱"
+        ]
+      },
+      "prompt": "これが世界遺産になった理由とは？",
+      "answer": "昭和のロボット、しかも二度目です。"
+    },
+    {
+      "id": "p04-a05",
+      "promptId": "p04",
+      "visualDescription": "左右対称の階段に、黄色い箱が置かれている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "colorful",
+          "symmetric"
+        ],
+        "lexemes": [
+          "左右",
+          "対称",
+          "階段",
+          "黄",
+          "箱"
+        ]
+      },
+      "prompt": "これが世界遺産になった理由とは？",
+      "answer": "「遺産」改め「無職の王様の経費」です。"
+    },
+    {
+      "id": "p04-a06",
+      "promptId": "p04",
+      "visualDescription": "左右対称の階段に、黄色い箱が置かれている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "colorful",
+          "symmetric"
+        ],
+        "lexemes": [
+          "左右",
+          "対称",
+          "階段",
+          "黄",
+          "箱"
+        ]
+      },
+      "prompt": "これが世界遺産になった理由とは？",
+      "answer": "雲の上支店だけ、入口が出口です。"
+    },
+    {
+      "id": "p04-a07",
+      "promptId": "p04",
+      "visualDescription": "左右対称の階段に、黄色い箱が置かれている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "colorful",
+          "symmetric"
+        ],
+        "lexemes": [
+          "左右",
+          "対称",
+          "階段",
+          "黄",
+          "箱"
+        ]
+      },
+      "prompt": "これが世界遺産になった理由とは？",
+      "answer": "市役所の忍者が最後に電源を抜きました。"
+    },
+    {
+      "id": "p04-a08",
+      "promptId": "p04",
+      "visualDescription": "左右対称の階段に、黄色い箱が置かれている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "colorful",
+          "symmetric"
+        ],
+        "lexemes": [
+          "左右",
+          "対称",
+          "階段",
+          "黄",
+          "箱"
+        ]
+      },
+      "prompt": "これが世界遺産になった理由とは？",
+      "answer": "今なら校長を二人セットで無料配送。"
+    },
+    {
+      "id": "p04-a09",
+      "promptId": "p04",
+      "visualDescription": "左右対称の階段に、黄色い箱が置かれている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "colorful",
+          "symmetric"
+        ],
+        "lexemes": [
+          "左右",
+          "対称",
+          "階段",
+          "黄",
+          "箱"
+        ]
+      },
+      "prompt": "これが世界遺産になった理由とは？",
+      "answer": "町内会長のせいで、百年後も仮オープンです。"
+    },
+    {
+      "id": "p04-a10",
+      "promptId": "p04",
+      "visualDescription": "左右対称の階段に、黄色い箱が置かれている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "colorful",
+          "symmetric"
+        ],
+        "lexemes": [
+          "左右",
+          "対称",
+          "階段",
+          "黄",
+          "箱"
+        ]
+      },
+      "prompt": "これが世界遺産になった理由とは？",
+      "answer": "写真外で未来の店長が返品交渉中です。"
+    },
+    {
+      "id": "p04-a11",
+      "promptId": "p04",
+      "visualDescription": "左右対称の階段に、黄色い箱が置かれている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "colorful",
+          "symmetric"
+        ],
+        "lexemes": [
+          "左右",
+          "対称",
+          "階段",
+          "黄",
+          "箱"
+        ]
+      },
+      "prompt": "これが世界遺産になった理由とは？",
+      "answer": "月曜だけ来る神様を三回まで認めます。"
+    },
+    {
+      "id": "p04-a12",
+      "promptId": "p04",
+      "visualDescription": "左右対称の階段に、黄色い箱が置かれている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "colorful",
+          "symmetric"
+        ],
+        "lexemes": [
+          "左右",
+          "対称",
+          "階段",
+          "黄",
+          "箱"
+        ]
+      },
+      "prompt": "これが世界遺産になった理由とは？",
+      "answer": "宇宙支店では、新人AIだけ有料です。"
+    },
+    {
+      "id": "p04-a13",
+      "promptId": "p04",
+      "visualDescription": "左右対称の階段に、黄色い箱が置かれている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "colorful",
+          "symmetric"
+        ],
+        "lexemes": [
+          "左右",
+          "対称",
+          "階段",
+          "黄",
+          "箱"
+        ]
+      },
+      "prompt": "これが世界遺産になった理由とは？",
+      "answer": "実は宇宙支店の母の休憩時間です。"
+    },
+    {
+      "id": "p04-a14",
+      "promptId": "p04",
+      "visualDescription": "左右対称の階段に、黄色い箱が置かれている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "colorful",
+          "symmetric"
+        ],
+        "lexemes": [
+          "左右",
+          "対称",
+          "階段",
+          "黄",
+          "箱"
+        ]
+      },
+      "prompt": "これが世界遺産になった理由とは？",
+      "answer": "昭和のロボット、しかも二度目です。"
+    },
+    {
+      "id": "p04-a15",
+      "promptId": "p04",
+      "visualDescription": "左右対称の階段に、黄色い箱が置かれている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "colorful",
+          "symmetric"
+        ],
+        "lexemes": [
+          "左右",
+          "対称",
+          "階段",
+          "黄",
+          "箱"
+        ]
+      },
+      "prompt": "これが世界遺産になった理由とは？",
+      "answer": "「遺産」改め「無職の王様の経費」です。"
+    },
+    {
+      "id": "p04-a16",
+      "promptId": "p04",
+      "visualDescription": "左右対称の階段に、黄色い箱が置かれている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "colorful",
+          "symmetric"
+        ],
+        "lexemes": [
+          "左右",
+          "対称",
+          "階段",
+          "黄",
+          "箱"
+        ]
+      },
+      "prompt": "これが世界遺産になった理由とは？",
+      "answer": "雲の上支店だけ、入口が出口です。"
+    },
+    {
+      "id": "p04-a17",
+      "promptId": "p04",
+      "visualDescription": "左右対称の階段に、黄色い箱が置かれている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "colorful",
+          "symmetric"
+        ],
+        "lexemes": [
+          "左右",
+          "対称",
+          "階段",
+          "黄",
+          "箱"
+        ]
+      },
+      "prompt": "これが世界遺産になった理由とは？",
+      "answer": "市役所の忍者が最後に電源を抜きました。"
+    },
+    {
+      "id": "p04-a18",
+      "promptId": "p04",
+      "visualDescription": "左右対称の階段に、黄色い箱が置かれている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "colorful",
+          "symmetric"
+        ],
+        "lexemes": [
+          "左右",
+          "対称",
+          "階段",
+          "黄",
+          "箱"
+        ]
+      },
+      "prompt": "これが世界遺産になった理由とは？",
+      "answer": "今なら校長を二人セットで無料配送。"
+    },
+    {
+      "id": "p04-a19",
+      "promptId": "p04",
+      "visualDescription": "左右対称の階段に、黄色い箱が置かれている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "colorful",
+          "symmetric"
+        ],
+        "lexemes": [
+          "左右",
+          "対称",
+          "階段",
+          "黄",
+          "箱"
+        ]
+      },
+      "prompt": "これが世界遺産になった理由とは？",
+      "answer": "町内会長のせいで、百年後も仮オープンです。"
+    },
+    {
+      "id": "p04-a20",
+      "promptId": "p04",
+      "visualDescription": "左右対称の階段に、黄色い箱が置かれている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "colorful",
+          "symmetric"
+        ],
+        "lexemes": [
+          "左右",
+          "対称",
+          "階段",
+          "黄",
+          "箱"
+        ]
+      },
+      "prompt": "これが世界遺産になった理由とは？",
+      "answer": "写真外で未来の店長が返品交渉中です。"
+    },
+    {
+      "id": "p05-a01",
+      "promptId": "p05",
+      "visualDescription": "曇った駅前で、大きな時計だけが傾いている。",
+      "visual": {
+        "labels": [
+          "muted",
+          "busy"
+        ],
+        "lexemes": [
+          "灰色",
+          "駅",
+          "時計",
+          "傾き"
+        ]
+      },
+      "prompt": "この写真だけが知っている秘密とは？",
+      "answer": "新人AIがまだ研修中です。"
+    },
+    {
+      "id": "p05-a02",
+      "promptId": "p05",
+      "visualDescription": "曇った駅前で、大きな時計だけが傾いている。",
+      "visual": {
+        "labels": [
+          "muted",
+          "busy"
+        ],
+        "lexemes": [
+          "灰色",
+          "駅",
+          "時計",
+          "傾き"
+        ]
+      },
+      "prompt": "この写真だけが知っている秘密とは？",
+      "answer": "校庭では、宇宙支店の母が先に謝りました。"
+    },
+    {
+      "id": "p05-a03",
+      "promptId": "p05",
+      "visualDescription": "曇った駅前で、大きな時計だけが傾いている。",
+      "visual": {
+        "labels": [
+          "muted",
+          "busy"
+        ],
+        "lexemes": [
+          "灰色",
+          "駅",
+          "時計",
+          "傾き"
+        ]
+      },
+      "prompt": "この写真だけが知っている秘密とは？",
+      "answer": "実は昭和のロボットの休憩時間です。"
+    },
+    {
+      "id": "p05-a04",
+      "promptId": "p05",
+      "visualDescription": "曇った駅前で、大きな時計だけが傾いている。",
+      "visual": {
+        "labels": [
+          "muted",
+          "busy"
+        ],
+        "lexemes": [
+          "灰色",
+          "駅",
+          "時計",
+          "傾き"
+        ]
+      },
+      "prompt": "この写真だけが知っている秘密とは？",
+      "answer": "無職の王様、しかも二度目です。"
+    },
+    {
+      "id": "p05-a05",
+      "promptId": "p05",
+      "visualDescription": "曇った駅前で、大きな時計だけが傾いている。",
+      "visual": {
+        "labels": [
+          "muted",
+          "busy"
+        ],
+        "lexemes": [
+          "灰色",
+          "駅",
+          "時計",
+          "傾き"
+        ]
+      },
+      "prompt": "この写真だけが知っている秘密とは？",
+      "answer": "「秘密」改め「二代目の雲の経費」です。"
+    },
+    {
+      "id": "p05-a06",
+      "promptId": "p05",
+      "visualDescription": "曇った駅前で、大きな時計だけが傾いている。",
+      "visual": {
+        "labels": [
+          "muted",
+          "busy"
+        ],
+        "lexemes": [
+          "灰色",
+          "駅",
+          "時計",
+          "傾き"
+        ]
+      },
+      "prompt": "この写真だけが知っている秘密とは？",
+      "answer": "百年後支店だけ、入口が出口です。"
+    },
+    {
+      "id": "p05-a07",
+      "promptId": "p05",
+      "visualDescription": "曇った駅前で、大きな時計だけが傾いている。",
+      "visual": {
+        "labels": [
+          "muted",
+          "busy"
+        ],
+        "lexemes": [
+          "灰色",
+          "駅",
+          "時計",
+          "傾き"
+        ]
+      },
+      "prompt": "この写真だけが知っている秘密とは？",
+      "answer": "校長が最後に電源を抜きました。"
+    },
+    {
+      "id": "p05-a08",
+      "promptId": "p05",
+      "visualDescription": "曇った駅前で、大きな時計だけが傾いている。",
+      "visual": {
+        "labels": [
+          "muted",
+          "busy"
+        ],
+        "lexemes": [
+          "灰色",
+          "駅",
+          "時計",
+          "傾き"
+        ]
+      },
+      "prompt": "この写真だけが知っている秘密とは？",
+      "answer": "今なら町内会長を二人セットで無料配送。"
+    },
+    {
+      "id": "p05-a09",
+      "promptId": "p05",
+      "visualDescription": "曇った駅前で、大きな時計だけが傾いている。",
+      "visual": {
+        "labels": [
+          "muted",
+          "busy"
+        ],
+        "lexemes": [
+          "灰色",
+          "駅",
+          "時計",
+          "傾き"
+        ]
+      },
+      "prompt": "この写真だけが知っている秘密とは？",
+      "answer": "未来の店長のせいで、百年後も仮オープンです。"
+    },
+    {
+      "id": "p05-a10",
+      "promptId": "p05",
+      "visualDescription": "曇った駅前で、大きな時計だけが傾いている。",
+      "visual": {
+        "labels": [
+          "muted",
+          "busy"
+        ],
+        "lexemes": [
+          "灰色",
+          "駅",
+          "時計",
+          "傾き"
+        ]
+      },
+      "prompt": "この写真だけが知っている秘密とは？",
+      "answer": "写真外で月曜だけ来る神様が返品交渉中です。"
+    },
+    {
+      "id": "p05-a11",
+      "promptId": "p05",
+      "visualDescription": "曇った駅前で、大きな時計だけが傾いている。",
+      "visual": {
+        "labels": [
+          "muted",
+          "busy"
+        ],
+        "lexemes": [
+          "灰色",
+          "駅",
+          "時計",
+          "傾き"
+        ]
+      },
+      "prompt": "この写真だけが知っている秘密とは？",
+      "answer": "新人AIがまだ研修中です。"
+    },
+    {
+      "id": "p05-a12",
+      "promptId": "p05",
+      "visualDescription": "曇った駅前で、大きな時計だけが傾いている。",
+      "visual": {
+        "labels": [
+          "muted",
+          "busy"
+        ],
+        "lexemes": [
+          "灰色",
+          "駅",
+          "時計",
+          "傾き"
+        ]
+      },
+      "prompt": "この写真だけが知っている秘密とは？",
+      "answer": "校庭では、宇宙支店の母が先に謝りました。"
+    },
+    {
+      "id": "p05-a13",
+      "promptId": "p05",
+      "visualDescription": "曇った駅前で、大きな時計だけが傾いている。",
+      "visual": {
+        "labels": [
+          "muted",
+          "busy"
+        ],
+        "lexemes": [
+          "灰色",
+          "駅",
+          "時計",
+          "傾き"
+        ]
+      },
+      "prompt": "この写真だけが知っている秘密とは？",
+      "answer": "実は昭和のロボットの休憩時間です。"
+    },
+    {
+      "id": "p05-a14",
+      "promptId": "p05",
+      "visualDescription": "曇った駅前で、大きな時計だけが傾いている。",
+      "visual": {
+        "labels": [
+          "muted",
+          "busy"
+        ],
+        "lexemes": [
+          "灰色",
+          "駅",
+          "時計",
+          "傾き"
+        ]
+      },
+      "prompt": "この写真だけが知っている秘密とは？",
+      "answer": "無職の王様、しかも二度目です。"
+    },
+    {
+      "id": "p05-a15",
+      "promptId": "p05",
+      "visualDescription": "曇った駅前で、大きな時計だけが傾いている。",
+      "visual": {
+        "labels": [
+          "muted",
+          "busy"
+        ],
+        "lexemes": [
+          "灰色",
+          "駅",
+          "時計",
+          "傾き"
+        ]
+      },
+      "prompt": "この写真だけが知っている秘密とは？",
+      "answer": "「秘密」改め「二代目の雲の経費」です。"
+    },
+    {
+      "id": "p05-a16",
+      "promptId": "p05",
+      "visualDescription": "曇った駅前で、大きな時計だけが傾いている。",
+      "visual": {
+        "labels": [
+          "muted",
+          "busy"
+        ],
+        "lexemes": [
+          "灰色",
+          "駅",
+          "時計",
+          "傾き"
+        ]
+      },
+      "prompt": "この写真だけが知っている秘密とは？",
+      "answer": "百年後支店だけ、入口が出口です。"
+    },
+    {
+      "id": "p05-a17",
+      "promptId": "p05",
+      "visualDescription": "曇った駅前で、大きな時計だけが傾いている。",
+      "visual": {
+        "labels": [
+          "muted",
+          "busy"
+        ],
+        "lexemes": [
+          "灰色",
+          "駅",
+          "時計",
+          "傾き"
+        ]
+      },
+      "prompt": "この写真だけが知っている秘密とは？",
+      "answer": "校長が最後に電源を抜きました。"
+    },
+    {
+      "id": "p05-a18",
+      "promptId": "p05",
+      "visualDescription": "曇った駅前で、大きな時計だけが傾いている。",
+      "visual": {
+        "labels": [
+          "muted",
+          "busy"
+        ],
+        "lexemes": [
+          "灰色",
+          "駅",
+          "時計",
+          "傾き"
+        ]
+      },
+      "prompt": "この写真だけが知っている秘密とは？",
+      "answer": "今なら町内会長を二人セットで無料配送。"
+    },
+    {
+      "id": "p05-a19",
+      "promptId": "p05",
+      "visualDescription": "曇った駅前で、大きな時計だけが傾いている。",
+      "visual": {
+        "labels": [
+          "muted",
+          "busy"
+        ],
+        "lexemes": [
+          "灰色",
+          "駅",
+          "時計",
+          "傾き"
+        ]
+      },
+      "prompt": "この写真だけが知っている秘密とは？",
+      "answer": "未来の店長のせいで、百年後も仮オープンです。"
+    },
+    {
+      "id": "p05-a20",
+      "promptId": "p05",
+      "visualDescription": "曇った駅前で、大きな時計だけが傾いている。",
+      "visual": {
+        "labels": [
+          "muted",
+          "busy"
+        ],
+        "lexemes": [
+          "灰色",
+          "駅",
+          "時計",
+          "傾き"
+        ]
+      },
+      "prompt": "この写真だけが知っている秘密とは？",
+      "answer": "写真外で月曜だけ来る神様が返品交渉中です。"
+    },
+    {
+      "id": "p06-a01",
+      "promptId": "p06",
+      "visualDescription": "赤い料理が、白い皿へ一口分だけ盛られている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "warm",
+          "colorful"
+        ],
+        "lexemes": [
+          "赤",
+          "白",
+          "料理",
+          "皿"
+        ]
+      },
+      "prompt": "これを通販番組っぽく紹介してください",
+      "answer": "宇宙支店の母に月額制を導入しました。"
+    },
+    {
+      "id": "p06-a02",
+      "promptId": "p06",
+      "visualDescription": "赤い料理が、白い皿へ一口分だけ盛られている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "warm",
+          "colorful"
+        ],
+        "lexemes": [
+          "赤",
+          "白",
+          "料理",
+          "皿"
+        ]
+      },
+      "prompt": "これを通販番組っぽく紹介してください",
+      "answer": "雲の上では、昭和のロボットは本日で終了です。"
+    },
+    {
+      "id": "p06-a03",
+      "promptId": "p06",
+      "visualDescription": "赤い料理が、白い皿へ一口分だけ盛られている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "warm",
+          "colorful"
+        ],
+        "lexemes": [
+          "赤",
+          "白",
+          "料理",
+          "皿"
+        ]
+      },
+      "prompt": "これを通販番組っぽく紹介してください",
+      "answer": "実は無職の王様の休憩時間です。"
+    },
+    {
+      "id": "p06-a04",
+      "promptId": "p06",
+      "visualDescription": "赤い料理が、白い皿へ一口分だけ盛られている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "warm",
+          "colorful"
+        ],
+        "lexemes": [
+          "赤",
+          "白",
+          "料理",
+          "皿"
+        ]
+      },
+      "prompt": "これを通販番組っぽく紹介してください",
+      "answer": "二代目の雲、しかも二度目です。"
+    },
+    {
+      "id": "p06-a05",
+      "promptId": "p06",
+      "visualDescription": "赤い料理が、白い皿へ一口分だけ盛られている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "warm",
+          "colorful"
+        ],
+        "lexemes": [
+          "赤",
+          "白",
+          "料理",
+          "皿"
+        ]
+      },
+      "prompt": "これを通販番組っぽく紹介してください",
+      "answer": "「通販」改め「市役所の忍者の経費」です。"
+    },
+    {
+      "id": "p06-a06",
+      "promptId": "p06",
+      "visualDescription": "赤い料理が、白い皿へ一口分だけ盛られている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "warm",
+          "colorful"
+        ],
+        "lexemes": [
+          "赤",
+          "白",
+          "料理",
+          "皿"
+        ]
+      },
+      "prompt": "これを通販番組っぽく紹介してください",
+      "answer": "月面支店だけ、入口が出口です。"
+    },
+    {
+      "id": "p06-a07",
+      "promptId": "p06",
+      "visualDescription": "赤い料理が、白い皿へ一口分だけ盛られている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "warm",
+          "colorful"
+        ],
+        "lexemes": [
+          "赤",
+          "白",
+          "料理",
+          "皿"
+        ]
+      },
+      "prompt": "これを通販番組っぽく紹介してください",
+      "answer": "町内会長が最後に電源を抜きました。"
+    },
+    {
+      "id": "p06-a08",
+      "promptId": "p06",
+      "visualDescription": "赤い料理が、白い皿へ一口分だけ盛られている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "warm",
+          "colorful"
+        ],
+        "lexemes": [
+          "赤",
+          "白",
+          "料理",
+          "皿"
+        ]
+      },
+      "prompt": "これを通販番組っぽく紹介してください",
+      "answer": "今なら未来の店長を二人セットで無料配送。"
+    },
+    {
+      "id": "p06-a09",
+      "promptId": "p06",
+      "visualDescription": "赤い料理が、白い皿へ一口分だけ盛られている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "warm",
+          "colorful"
+        ],
+        "lexemes": [
+          "赤",
+          "白",
+          "料理",
+          "皿"
+        ]
+      },
+      "prompt": "これを通販番組っぽく紹介してください",
+      "answer": "月曜だけ来る神様のせいで、百年後も仮オープンです。"
+    },
+    {
+      "id": "p06-a10",
+      "promptId": "p06",
+      "visualDescription": "赤い料理が、白い皿へ一口分だけ盛られている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "warm",
+          "colorful"
+        ],
+        "lexemes": [
+          "赤",
+          "白",
+          "料理",
+          "皿"
+        ]
+      },
+      "prompt": "これを通販番組っぽく紹介してください",
+      "answer": "写真外で新人AIが返品交渉中です。"
+    },
+    {
+      "id": "p06-a11",
+      "promptId": "p06",
+      "visualDescription": "赤い料理が、白い皿へ一口分だけ盛られている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "warm",
+          "colorful"
+        ],
+        "lexemes": [
+          "赤",
+          "白",
+          "料理",
+          "皿"
+        ]
+      },
+      "prompt": "これを通販番組っぽく紹介してください",
+      "answer": "宇宙支店の母に月額制を導入しました。"
+    },
+    {
+      "id": "p06-a12",
+      "promptId": "p06",
+      "visualDescription": "赤い料理が、白い皿へ一口分だけ盛られている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "warm",
+          "colorful"
+        ],
+        "lexemes": [
+          "赤",
+          "白",
+          "料理",
+          "皿"
+        ]
+      },
+      "prompt": "これを通販番組っぽく紹介してください",
+      "answer": "雲の上では、昭和のロボットは本日で終了です。"
+    },
+    {
+      "id": "p06-a13",
+      "promptId": "p06",
+      "visualDescription": "赤い料理が、白い皿へ一口分だけ盛られている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "warm",
+          "colorful"
+        ],
+        "lexemes": [
+          "赤",
+          "白",
+          "料理",
+          "皿"
+        ]
+      },
+      "prompt": "これを通販番組っぽく紹介してください",
+      "answer": "実は無職の王様の休憩時間です。"
+    },
+    {
+      "id": "p06-a14",
+      "promptId": "p06",
+      "visualDescription": "赤い料理が、白い皿へ一口分だけ盛られている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "warm",
+          "colorful"
+        ],
+        "lexemes": [
+          "赤",
+          "白",
+          "料理",
+          "皿"
+        ]
+      },
+      "prompt": "これを通販番組っぽく紹介してください",
+      "answer": "二代目の雲、しかも二度目です。"
+    },
+    {
+      "id": "p06-a15",
+      "promptId": "p06",
+      "visualDescription": "赤い料理が、白い皿へ一口分だけ盛られている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "warm",
+          "colorful"
+        ],
+        "lexemes": [
+          "赤",
+          "白",
+          "料理",
+          "皿"
+        ]
+      },
+      "prompt": "これを通販番組っぽく紹介してください",
+      "answer": "「通販」改め「市役所の忍者の経費」です。"
+    },
+    {
+      "id": "p06-a16",
+      "promptId": "p06",
+      "visualDescription": "赤い料理が、白い皿へ一口分だけ盛られている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "warm",
+          "colorful"
+        ],
+        "lexemes": [
+          "赤",
+          "白",
+          "料理",
+          "皿"
+        ]
+      },
+      "prompt": "これを通販番組っぽく紹介してください",
+      "answer": "月面支店だけ、入口が出口です。"
+    },
+    {
+      "id": "p06-a17",
+      "promptId": "p06",
+      "visualDescription": "赤い料理が、白い皿へ一口分だけ盛られている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "warm",
+          "colorful"
+        ],
+        "lexemes": [
+          "赤",
+          "白",
+          "料理",
+          "皿"
+        ]
+      },
+      "prompt": "これを通販番組っぽく紹介してください",
+      "answer": "町内会長が最後に電源を抜きました。"
+    },
+    {
+      "id": "p06-a18",
+      "promptId": "p06",
+      "visualDescription": "赤い料理が、白い皿へ一口分だけ盛られている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "warm",
+          "colorful"
+        ],
+        "lexemes": [
+          "赤",
+          "白",
+          "料理",
+          "皿"
+        ]
+      },
+      "prompt": "これを通販番組っぽく紹介してください",
+      "answer": "今なら未来の店長を二人セットで無料配送。"
+    },
+    {
+      "id": "p06-a19",
+      "promptId": "p06",
+      "visualDescription": "赤い料理が、白い皿へ一口分だけ盛られている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "warm",
+          "colorful"
+        ],
+        "lexemes": [
+          "赤",
+          "白",
+          "料理",
+          "皿"
+        ]
+      },
+      "prompt": "これを通販番組っぽく紹介してください",
+      "answer": "月曜だけ来る神様のせいで、百年後も仮オープンです。"
+    },
+    {
+      "id": "p06-a20",
+      "promptId": "p06",
+      "visualDescription": "赤い料理が、白い皿へ一口分だけ盛られている。",
+      "visual": {
+        "labels": [
+          "bright",
+          "warm",
+          "colorful"
+        ],
+        "lexemes": [
+          "赤",
+          "白",
+          "料理",
+          "皿"
+        ]
+      },
+      "prompt": "これを通販番組っぽく紹介してください",
+      "answer": "写真外で新人AIが返品交渉中です。"
+    },
+    {
+      "id": "p07-a01",
+      "promptId": "p07",
+      "visualDescription": "古い教室の黒板に、百年後とだけ書かれている。",
+      "visual": {
+        "labels": [
+          "dark",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "黒",
+          "教室",
+          "黒板",
+          "百年後"
+        ]
+      },
+      "prompt": "100年後の教科書では、何と呼ばれている？",
+      "answer": "昭和のロボットだけ昭和のままです。"
+    },
+    {
+      "id": "p07-a02",
+      "promptId": "p07",
+      "visualDescription": "古い教室の黒板に、百年後とだけ書かれている。",
+      "visual": {
+        "labels": [
+          "dark",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "黒",
+          "教室",
+          "黒板",
+          "百年後"
+        ]
+      },
+      "prompt": "100年後の教科書では、何と呼ばれている？",
+      "answer": "百年後では、無職の王様を三回まで認めます。"
+    },
+    {
+      "id": "p07-a03",
+      "promptId": "p07",
+      "visualDescription": "古い教室の黒板に、百年後とだけ書かれている。",
+      "visual": {
+        "labels": [
+          "dark",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "黒",
+          "教室",
+          "黒板",
+          "百年後"
+        ]
+      },
+      "prompt": "100年後の教科書では、何と呼ばれている？",
+      "answer": "実は二代目の雲の休憩時間です。"
+    },
+    {
+      "id": "p07-a04",
+      "promptId": "p07",
+      "visualDescription": "古い教室の黒板に、百年後とだけ書かれている。",
+      "visual": {
+        "labels": [
+          "dark",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "黒",
+          "教室",
+          "黒板",
+          "百年後"
+        ]
+      },
+      "prompt": "100年後の教科書では、何と呼ばれている？",
+      "answer": "市役所の忍者、しかも二度目です。"
+    },
+    {
+      "id": "p07-a05",
+      "promptId": "p07",
+      "visualDescription": "古い教室の黒板に、百年後とだけ書かれている。",
+      "visual": {
+        "labels": [
+          "dark",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "黒",
+          "教室",
+          "黒板",
+          "百年後"
+        ]
+      },
+      "prompt": "100年後の教科書では、何と呼ばれている？",
+      "answer": "「未来」改め「校長の経費」です。"
+    },
+    {
+      "id": "p07-a06",
+      "promptId": "p07",
+      "visualDescription": "古い教室の黒板に、百年後とだけ書かれている。",
+      "visual": {
+        "labels": [
+          "dark",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "黒",
+          "教室",
+          "黒板",
+          "百年後"
+        ]
+      },
+      "prompt": "100年後の教科書では、何と呼ばれている？",
+      "answer": "コンビニ裏支店だけ、入口が出口です。"
+    },
+    {
+      "id": "p07-a07",
+      "promptId": "p07",
+      "visualDescription": "古い教室の黒板に、百年後とだけ書かれている。",
+      "visual": {
+        "labels": [
+          "dark",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "黒",
+          "教室",
+          "黒板",
+          "百年後"
+        ]
+      },
+      "prompt": "100年後の教科書では、何と呼ばれている？",
+      "answer": "未来の店長が最後に電源を抜きました。"
+    },
+    {
+      "id": "p07-a08",
+      "promptId": "p07",
+      "visualDescription": "古い教室の黒板に、百年後とだけ書かれている。",
+      "visual": {
+        "labels": [
+          "dark",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "黒",
+          "教室",
+          "黒板",
+          "百年後"
+        ]
+      },
+      "prompt": "100年後の教科書では、何と呼ばれている？",
+      "answer": "今なら月曜だけ来る神様を二人セットで無料配送。"
+    },
+    {
+      "id": "p07-a09",
+      "promptId": "p07",
+      "visualDescription": "古い教室の黒板に、百年後とだけ書かれている。",
+      "visual": {
+        "labels": [
+          "dark",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "黒",
+          "教室",
+          "黒板",
+          "百年後"
+        ]
+      },
+      "prompt": "100年後の教科書では、何と呼ばれている？",
+      "answer": "新人AIのせいで、百年後も仮オープンです。"
+    },
+    {
+      "id": "p07-a10",
+      "promptId": "p07",
+      "visualDescription": "古い教室の黒板に、百年後とだけ書かれている。",
+      "visual": {
+        "labels": [
+          "dark",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "黒",
+          "教室",
+          "黒板",
+          "百年後"
+        ]
+      },
+      "prompt": "100年後の教科書では、何と呼ばれている？",
+      "answer": "写真外で宇宙支店の母が返品交渉中です。"
+    },
+    {
+      "id": "p07-a11",
+      "promptId": "p07",
+      "visualDescription": "古い教室の黒板に、百年後とだけ書かれている。",
+      "visual": {
+        "labels": [
+          "dark",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "黒",
+          "教室",
+          "黒板",
+          "百年後"
+        ]
+      },
+      "prompt": "100年後の教科書では、何と呼ばれている？",
+      "answer": "昭和のロボットだけ昭和のままです。"
+    },
+    {
+      "id": "p07-a12",
+      "promptId": "p07",
+      "visualDescription": "古い教室の黒板に、百年後とだけ書かれている。",
+      "visual": {
+        "labels": [
+          "dark",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "黒",
+          "教室",
+          "黒板",
+          "百年後"
+        ]
+      },
+      "prompt": "100年後の教科書では、何と呼ばれている？",
+      "answer": "百年後では、無職の王様を三回まで認めます。"
+    },
+    {
+      "id": "p07-a13",
+      "promptId": "p07",
+      "visualDescription": "古い教室の黒板に、百年後とだけ書かれている。",
+      "visual": {
+        "labels": [
+          "dark",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "黒",
+          "教室",
+          "黒板",
+          "百年後"
+        ]
+      },
+      "prompt": "100年後の教科書では、何と呼ばれている？",
+      "answer": "実は二代目の雲の休憩時間です。"
+    },
+    {
+      "id": "p07-a14",
+      "promptId": "p07",
+      "visualDescription": "古い教室の黒板に、百年後とだけ書かれている。",
+      "visual": {
+        "labels": [
+          "dark",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "黒",
+          "教室",
+          "黒板",
+          "百年後"
+        ]
+      },
+      "prompt": "100年後の教科書では、何と呼ばれている？",
+      "answer": "市役所の忍者、しかも二度目です。"
+    },
+    {
+      "id": "p07-a15",
+      "promptId": "p07",
+      "visualDescription": "古い教室の黒板に、百年後とだけ書かれている。",
+      "visual": {
+        "labels": [
+          "dark",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "黒",
+          "教室",
+          "黒板",
+          "百年後"
+        ]
+      },
+      "prompt": "100年後の教科書では、何と呼ばれている？",
+      "answer": "「未来」改め「校長の経費」です。"
+    },
+    {
+      "id": "p07-a16",
+      "promptId": "p07",
+      "visualDescription": "古い教室の黒板に、百年後とだけ書かれている。",
+      "visual": {
+        "labels": [
+          "dark",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "黒",
+          "教室",
+          "黒板",
+          "百年後"
+        ]
+      },
+      "prompt": "100年後の教科書では、何と呼ばれている？",
+      "answer": "コンビニ裏支店だけ、入口が出口です。"
+    },
+    {
+      "id": "p07-a17",
+      "promptId": "p07",
+      "visualDescription": "古い教室の黒板に、百年後とだけ書かれている。",
+      "visual": {
+        "labels": [
+          "dark",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "黒",
+          "教室",
+          "黒板",
+          "百年後"
+        ]
+      },
+      "prompt": "100年後の教科書では、何と呼ばれている？",
+      "answer": "未来の店長が最後に電源を抜きました。"
+    },
+    {
+      "id": "p07-a18",
+      "promptId": "p07",
+      "visualDescription": "古い教室の黒板に、百年後とだけ書かれている。",
+      "visual": {
+        "labels": [
+          "dark",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "黒",
+          "教室",
+          "黒板",
+          "百年後"
+        ]
+      },
+      "prompt": "100年後の教科書では、何と呼ばれている？",
+      "answer": "今なら月曜だけ来る神様を二人セットで無料配送。"
+    },
+    {
+      "id": "p07-a19",
+      "promptId": "p07",
+      "visualDescription": "古い教室の黒板に、百年後とだけ書かれている。",
+      "visual": {
+        "labels": [
+          "dark",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "黒",
+          "教室",
+          "黒板",
+          "百年後"
+        ]
+      },
+      "prompt": "100年後の教科書では、何と呼ばれている？",
+      "answer": "新人AIのせいで、百年後も仮オープンです。"
+    },
+    {
+      "id": "p07-a20",
+      "promptId": "p07",
+      "visualDescription": "古い教室の黒板に、百年後とだけ書かれている。",
+      "visual": {
+        "labels": [
+          "dark",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "黒",
+          "教室",
+          "黒板",
+          "百年後"
+        ]
+      },
+      "prompt": "100年後の教科書では、何と呼ばれている？",
+      "answer": "写真外で宇宙支店の母が返品交渉中です。"
+    },
+    {
+      "id": "p08-a01",
+      "promptId": "p08",
+      "visualDescription": "夕焼けの海辺に、無人のマイクが立っている。",
+      "visual": {
+        "labels": [
+          "warm",
+          "calm"
+        ],
+        "lexemes": [
+          "夕焼け",
+          "海",
+          "マイク",
+          "無人"
+        ]
+      },
+      "prompt": "この瞬間に流れているBGMのタイトルは？",
+      "answer": "無職の王様が最後に届きました。"
+    },
+    {
+      "id": "p08-a02",
+      "promptId": "p08",
+      "visualDescription": "夕焼けの海辺に、無人のマイクが立っている。",
+      "visual": {
+        "labels": [
+          "warm",
+          "calm"
+        ],
+        "lexemes": [
+          "夕焼け",
+          "海",
+          "マイク",
+          "無人"
+        ]
+      },
+      "prompt": "この瞬間に流れているBGMのタイトルは？",
+      "answer": "月面では、二代目の雲がまだ研修中です。"
+    },
+    {
+      "id": "p08-a03",
+      "promptId": "p08",
+      "visualDescription": "夕焼けの海辺に、無人のマイクが立っている。",
+      "visual": {
+        "labels": [
+          "warm",
+          "calm"
+        ],
+        "lexemes": [
+          "夕焼け",
+          "海",
+          "マイク",
+          "無人"
+        ]
+      },
+      "prompt": "この瞬間に流れているBGMのタイトルは？",
+      "answer": "実は市役所の忍者の休憩時間です。"
+    },
+    {
+      "id": "p08-a04",
+      "promptId": "p08",
+      "visualDescription": "夕焼けの海辺に、無人のマイクが立っている。",
+      "visual": {
+        "labels": [
+          "warm",
+          "calm"
+        ],
+        "lexemes": [
+          "夕焼け",
+          "海",
+          "マイク",
+          "無人"
+        ]
+      },
+      "prompt": "この瞬間に流れているBGMのタイトルは？",
+      "answer": "校長、しかも二度目です。"
+    },
+    {
+      "id": "p08-a05",
+      "promptId": "p08",
+      "visualDescription": "夕焼けの海辺に、無人のマイクが立っている。",
+      "visual": {
+        "labels": [
+          "warm",
+          "calm"
+        ],
+        "lexemes": [
+          "夕焼け",
+          "海",
+          "マイク",
+          "無人"
+        ]
+      },
+      "prompt": "この瞬間に流れているBGMのタイトルは？",
+      "answer": "「曲」改め「町内会長の経費」です。"
+    },
+    {
+      "id": "p08-a06",
+      "promptId": "p08",
+      "visualDescription": "夕焼けの海辺に、無人のマイクが立っている。",
+      "visual": {
+        "labels": [
+          "warm",
+          "calm"
+        ],
+        "lexemes": [
+          "夕焼け",
+          "海",
+          "マイク",
+          "無人"
+        ]
+      },
+      "prompt": "この瞬間に流れているBGMのタイトルは？",
+      "answer": "会議室支店だけ、入口が出口です。"
+    },
+    {
+      "id": "p08-a07",
+      "promptId": "p08",
+      "visualDescription": "夕焼けの海辺に、無人のマイクが立っている。",
+      "visual": {
+        "labels": [
+          "warm",
+          "calm"
+        ],
+        "lexemes": [
+          "夕焼け",
+          "海",
+          "マイク",
+          "無人"
+        ]
+      },
+      "prompt": "この瞬間に流れているBGMのタイトルは？",
+      "answer": "月曜だけ来る神様が最後に電源を抜きました。"
+    },
+    {
+      "id": "p08-a08",
+      "promptId": "p08",
+      "visualDescription": "夕焼けの海辺に、無人のマイクが立っている。",
+      "visual": {
+        "labels": [
+          "warm",
+          "calm"
+        ],
+        "lexemes": [
+          "夕焼け",
+          "海",
+          "マイク",
+          "無人"
+        ]
+      },
+      "prompt": "この瞬間に流れているBGMのタイトルは？",
+      "answer": "今なら新人AIを二人セットで無料配送。"
+    },
+    {
+      "id": "p08-a09",
+      "promptId": "p08",
+      "visualDescription": "夕焼けの海辺に、無人のマイクが立っている。",
+      "visual": {
+        "labels": [
+          "warm",
+          "calm"
+        ],
+        "lexemes": [
+          "夕焼け",
+          "海",
+          "マイク",
+          "無人"
+        ]
+      },
+      "prompt": "この瞬間に流れているBGMのタイトルは？",
+      "answer": "宇宙支店の母のせいで、百年後も仮オープンです。"
+    },
+    {
+      "id": "p08-a10",
+      "promptId": "p08",
+      "visualDescription": "夕焼けの海辺に、無人のマイクが立っている。",
+      "visual": {
+        "labels": [
+          "warm",
+          "calm"
+        ],
+        "lexemes": [
+          "夕焼け",
+          "海",
+          "マイク",
+          "無人"
+        ]
+      },
+      "prompt": "この瞬間に流れているBGMのタイトルは？",
+      "answer": "写真外で昭和のロボットが返品交渉中です。"
+    },
+    {
+      "id": "p08-a11",
+      "promptId": "p08",
+      "visualDescription": "夕焼けの海辺に、無人のマイクが立っている。",
+      "visual": {
+        "labels": [
+          "warm",
+          "calm"
+        ],
+        "lexemes": [
+          "夕焼け",
+          "海",
+          "マイク",
+          "無人"
+        ]
+      },
+      "prompt": "この瞬間に流れているBGMのタイトルは？",
+      "answer": "無職の王様が最後に届きました。"
+    },
+    {
+      "id": "p08-a12",
+      "promptId": "p08",
+      "visualDescription": "夕焼けの海辺に、無人のマイクが立っている。",
+      "visual": {
+        "labels": [
+          "warm",
+          "calm"
+        ],
+        "lexemes": [
+          "夕焼け",
+          "海",
+          "マイク",
+          "無人"
+        ]
+      },
+      "prompt": "この瞬間に流れているBGMのタイトルは？",
+      "answer": "月面では、二代目の雲がまだ研修中です。"
+    },
+    {
+      "id": "p08-a13",
+      "promptId": "p08",
+      "visualDescription": "夕焼けの海辺に、無人のマイクが立っている。",
+      "visual": {
+        "labels": [
+          "warm",
+          "calm"
+        ],
+        "lexemes": [
+          "夕焼け",
+          "海",
+          "マイク",
+          "無人"
+        ]
+      },
+      "prompt": "この瞬間に流れているBGMのタイトルは？",
+      "answer": "実は市役所の忍者の休憩時間です。"
+    },
+    {
+      "id": "p08-a14",
+      "promptId": "p08",
+      "visualDescription": "夕焼けの海辺に、無人のマイクが立っている。",
+      "visual": {
+        "labels": [
+          "warm",
+          "calm"
+        ],
+        "lexemes": [
+          "夕焼け",
+          "海",
+          "マイク",
+          "無人"
+        ]
+      },
+      "prompt": "この瞬間に流れているBGMのタイトルは？",
+      "answer": "校長、しかも二度目です。"
+    },
+    {
+      "id": "p08-a15",
+      "promptId": "p08",
+      "visualDescription": "夕焼けの海辺に、無人のマイクが立っている。",
+      "visual": {
+        "labels": [
+          "warm",
+          "calm"
+        ],
+        "lexemes": [
+          "夕焼け",
+          "海",
+          "マイク",
+          "無人"
+        ]
+      },
+      "prompt": "この瞬間に流れているBGMのタイトルは？",
+      "answer": "「曲」改め「町内会長の経費」です。"
+    },
+    {
+      "id": "p08-a16",
+      "promptId": "p08",
+      "visualDescription": "夕焼けの海辺に、無人のマイクが立っている。",
+      "visual": {
+        "labels": [
+          "warm",
+          "calm"
+        ],
+        "lexemes": [
+          "夕焼け",
+          "海",
+          "マイク",
+          "無人"
+        ]
+      },
+      "prompt": "この瞬間に流れているBGMのタイトルは？",
+      "answer": "会議室支店だけ、入口が出口です。"
+    },
+    {
+      "id": "p08-a17",
+      "promptId": "p08",
+      "visualDescription": "夕焼けの海辺に、無人のマイクが立っている。",
+      "visual": {
+        "labels": [
+          "warm",
+          "calm"
+        ],
+        "lexemes": [
+          "夕焼け",
+          "海",
+          "マイク",
+          "無人"
+        ]
+      },
+      "prompt": "この瞬間に流れているBGMのタイトルは？",
+      "answer": "月曜だけ来る神様が最後に電源を抜きました。"
+    },
+    {
+      "id": "p08-a18",
+      "promptId": "p08",
+      "visualDescription": "夕焼けの海辺に、無人のマイクが立っている。",
+      "visual": {
+        "labels": [
+          "warm",
+          "calm"
+        ],
+        "lexemes": [
+          "夕焼け",
+          "海",
+          "マイク",
+          "無人"
+        ]
+      },
+      "prompt": "この瞬間に流れているBGMのタイトルは？",
+      "answer": "今なら新人AIを二人セットで無料配送。"
+    },
+    {
+      "id": "p08-a19",
+      "promptId": "p08",
+      "visualDescription": "夕焼けの海辺に、無人のマイクが立っている。",
+      "visual": {
+        "labels": [
+          "warm",
+          "calm"
+        ],
+        "lexemes": [
+          "夕焼け",
+          "海",
+          "マイク",
+          "無人"
+        ]
+      },
+      "prompt": "この瞬間に流れているBGMのタイトルは？",
+      "answer": "宇宙支店の母のせいで、百年後も仮オープンです。"
+    },
+    {
+      "id": "p08-a20",
+      "promptId": "p08",
+      "visualDescription": "夕焼けの海辺に、無人のマイクが立っている。",
+      "visual": {
+        "labels": [
+          "warm",
+          "calm"
+        ],
+        "lexemes": [
+          "夕焼け",
+          "海",
+          "マイク",
+          "無人"
+        ]
+      },
+      "prompt": "この瞬間に流れているBGMのタイトルは？",
+      "answer": "写真外で昭和のロボットが返品交渉中です。"
+    },
+    {
+      "id": "p09-a01",
+      "promptId": "p09",
+      "visualDescription": "森の中に、青い扉だけが立っている。",
+      "visual": {
+        "labels": [
+          "cool",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "森",
+          "青",
+          "扉"
+        ]
+      },
+      "prompt": "神様がこれを作った本当の理由は？",
+      "answer": "二代目の雲を校長が却下しました。"
+    },
+    {
+      "id": "p09-a02",
+      "promptId": "p09",
+      "visualDescription": "森の中に、青い扉だけが立っている。",
+      "visual": {
+        "labels": [
+          "cool",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "森",
+          "青",
+          "扉"
+        ]
+      },
+      "prompt": "神様がこれを作った本当の理由は？",
+      "answer": "コンビニ裏では、市役所の忍者に月額制を導入しました。"
+    },
+    {
+      "id": "p09-a03",
+      "promptId": "p09",
+      "visualDescription": "森の中に、青い扉だけが立っている。",
+      "visual": {
+        "labels": [
+          "cool",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "森",
+          "青",
+          "扉"
+        ]
+      },
+      "prompt": "神様がこれを作った本当の理由は？",
+      "answer": "実は校長の休憩時間です。"
+    },
+    {
+      "id": "p09-a04",
+      "promptId": "p09",
+      "visualDescription": "森の中に、青い扉だけが立っている。",
+      "visual": {
+        "labels": [
+          "cool",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "森",
+          "青",
+          "扉"
+        ]
+      },
+      "prompt": "神様がこれを作った本当の理由は？",
+      "answer": "町内会長、しかも二度目です。"
+    },
+    {
+      "id": "p09-a05",
+      "promptId": "p09",
+      "visualDescription": "森の中に、青い扉だけが立っている。",
+      "visual": {
+        "labels": [
+          "cool",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "森",
+          "青",
+          "扉"
+        ]
+      },
+      "prompt": "神様がこれを作った本当の理由は？",
+      "answer": "「理由」改め「未来の店長の経費」です。"
+    },
+    {
+      "id": "p09-a06",
+      "promptId": "p09",
+      "visualDescription": "森の中に、青い扉だけが立っている。",
+      "visual": {
+        "labels": [
+          "cool",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "森",
+          "青",
+          "扉"
+        ]
+      },
+      "prompt": "神様がこれを作った本当の理由は？",
+      "answer": "実家支店だけ、入口が出口です。"
+    },
+    {
+      "id": "p09-a07",
+      "promptId": "p09",
+      "visualDescription": "森の中に、青い扉だけが立っている。",
+      "visual": {
+        "labels": [
+          "cool",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "森",
+          "青",
+          "扉"
+        ]
+      },
+      "prompt": "神様がこれを作った本当の理由は？",
+      "answer": "新人AIが最後に電源を抜きました。"
+    },
+    {
+      "id": "p09-a08",
+      "promptId": "p09",
+      "visualDescription": "森の中に、青い扉だけが立っている。",
+      "visual": {
+        "labels": [
+          "cool",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "森",
+          "青",
+          "扉"
+        ]
+      },
+      "prompt": "神様がこれを作った本当の理由は？",
+      "answer": "今なら宇宙支店の母を二人セットで無料配送。"
+    },
+    {
+      "id": "p09-a09",
+      "promptId": "p09",
+      "visualDescription": "森の中に、青い扉だけが立っている。",
+      "visual": {
+        "labels": [
+          "cool",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "森",
+          "青",
+          "扉"
+        ]
+      },
+      "prompt": "神様がこれを作った本当の理由は？",
+      "answer": "昭和のロボットのせいで、百年後も仮オープンです。"
+    },
+    {
+      "id": "p09-a10",
+      "promptId": "p09",
+      "visualDescription": "森の中に、青い扉だけが立っている。",
+      "visual": {
+        "labels": [
+          "cool",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "森",
+          "青",
+          "扉"
+        ]
+      },
+      "prompt": "神様がこれを作った本当の理由は？",
+      "answer": "写真外で無職の王様が返品交渉中です。"
+    },
+    {
+      "id": "p09-a11",
+      "promptId": "p09",
+      "visualDescription": "森の中に、青い扉だけが立っている。",
+      "visual": {
+        "labels": [
+          "cool",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "森",
+          "青",
+          "扉"
+        ]
+      },
+      "prompt": "神様がこれを作った本当の理由は？",
+      "answer": "二代目の雲を校長が却下しました。"
+    },
+    {
+      "id": "p09-a12",
+      "promptId": "p09",
+      "visualDescription": "森の中に、青い扉だけが立っている。",
+      "visual": {
+        "labels": [
+          "cool",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "森",
+          "青",
+          "扉"
+        ]
+      },
+      "prompt": "神様がこれを作った本当の理由は？",
+      "answer": "コンビニ裏では、市役所の忍者に月額制を導入しました。"
+    },
+    {
+      "id": "p09-a13",
+      "promptId": "p09",
+      "visualDescription": "森の中に、青い扉だけが立っている。",
+      "visual": {
+        "labels": [
+          "cool",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "森",
+          "青",
+          "扉"
+        ]
+      },
+      "prompt": "神様がこれを作った本当の理由は？",
+      "answer": "実は校長の休憩時間です。"
+    },
+    {
+      "id": "p09-a14",
+      "promptId": "p09",
+      "visualDescription": "森の中に、青い扉だけが立っている。",
+      "visual": {
+        "labels": [
+          "cool",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "森",
+          "青",
+          "扉"
+        ]
+      },
+      "prompt": "神様がこれを作った本当の理由は？",
+      "answer": "町内会長、しかも二度目です。"
+    },
+    {
+      "id": "p09-a15",
+      "promptId": "p09",
+      "visualDescription": "森の中に、青い扉だけが立っている。",
+      "visual": {
+        "labels": [
+          "cool",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "森",
+          "青",
+          "扉"
+        ]
+      },
+      "prompt": "神様がこれを作った本当の理由は？",
+      "answer": "「理由」改め「未来の店長の経費」です。"
+    },
+    {
+      "id": "p09-a16",
+      "promptId": "p09",
+      "visualDescription": "森の中に、青い扉だけが立っている。",
+      "visual": {
+        "labels": [
+          "cool",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "森",
+          "青",
+          "扉"
+        ]
+      },
+      "prompt": "神様がこれを作った本当の理由は？",
+      "answer": "実家支店だけ、入口が出口です。"
+    },
+    {
+      "id": "p09-a17",
+      "promptId": "p09",
+      "visualDescription": "森の中に、青い扉だけが立っている。",
+      "visual": {
+        "labels": [
+          "cool",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "森",
+          "青",
+          "扉"
+        ]
+      },
+      "prompt": "神様がこれを作った本当の理由は？",
+      "answer": "新人AIが最後に電源を抜きました。"
+    },
+    {
+      "id": "p09-a18",
+      "promptId": "p09",
+      "visualDescription": "森の中に、青い扉だけが立っている。",
+      "visual": {
+        "labels": [
+          "cool",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "森",
+          "青",
+          "扉"
+        ]
+      },
+      "prompt": "神様がこれを作った本当の理由は？",
+      "answer": "今なら宇宙支店の母を二人セットで無料配送。"
+    },
+    {
+      "id": "p09-a19",
+      "promptId": "p09",
+      "visualDescription": "森の中に、青い扉だけが立っている。",
+      "visual": {
+        "labels": [
+          "cool",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "森",
+          "青",
+          "扉"
+        ]
+      },
+      "prompt": "神様がこれを作った本当の理由は？",
+      "answer": "昭和のロボットのせいで、百年後も仮オープンです。"
+    },
+    {
+      "id": "p09-a20",
+      "promptId": "p09",
+      "visualDescription": "森の中に、青い扉だけが立っている。",
+      "visual": {
+        "labels": [
+          "cool",
+          "muted",
+          "calm"
+        ],
+        "lexemes": [
+          "森",
+          "青",
+          "扉"
+        ]
+      },
+      "prompt": "神様がこれを作った本当の理由は？",
+      "answer": "写真外で無職の王様が返品交渉中です。"
+    },
+    {
+      "id": "p10-a01",
+      "promptId": "p10",
+      "visualDescription": "混雑した商店街の端で、ロボットが休んでいる。",
+      "visual": {
+        "labels": [
+          "busy",
+          "colorful"
+        ],
+        "lexemes": [
+          "混雑",
+          "商店街",
+          "ロボット",
+          "休み"
+        ]
+      },
+      "prompt": "写真の外側で起きていることを教えてください",
+      "answer": "市役所の忍者が実は代打でした。"
+    },
+    {
+      "id": "p10-a02",
+      "promptId": "p10",
+      "visualDescription": "混雑した商店街の端で、ロボットが休んでいる。",
+      "visual": {
+        "labels": [
+          "busy",
+          "colorful"
+        ],
+        "lexemes": [
+          "混雑",
+          "商店街",
+          "ロボット",
+          "休み"
+        ]
+      },
+      "prompt": "写真の外側で起きていることを教えてください",
+      "answer": "会議室では、校長だけ昭和のままです。"
+    },
+    {
+      "id": "p10-a03",
+      "promptId": "p10",
+      "visualDescription": "混雑した商店街の端で、ロボットが休んでいる。",
+      "visual": {
+        "labels": [
+          "busy",
+          "colorful"
+        ],
+        "lexemes": [
+          "混雑",
+          "商店街",
+          "ロボット",
+          "休み"
+        ]
+      },
+      "prompt": "写真の外側で起きていることを教えてください",
+      "answer": "実は町内会長の休憩時間です。"
+    },
+    {
+      "id": "p10-a04",
+      "promptId": "p10",
+      "visualDescription": "混雑した商店街の端で、ロボットが休んでいる。",
+      "visual": {
+        "labels": [
+          "busy",
+          "colorful"
+        ],
+        "lexemes": [
+          "混雑",
+          "商店街",
+          "ロボット",
+          "休み"
+        ]
+      },
+      "prompt": "写真の外側で起きていることを教えてください",
+      "answer": "未来の店長、しかも二度目です。"
+    },
+    {
+      "id": "p10-a05",
+      "promptId": "p10",
+      "visualDescription": "混雑した商店街の端で、ロボットが休んでいる。",
+      "visual": {
+        "labels": [
+          "busy",
+          "colorful"
+        ],
+        "lexemes": [
+          "混雑",
+          "商店街",
+          "ロボット",
+          "休み"
+        ]
+      },
+      "prompt": "写真の外側で起きていることを教えてください",
+      "answer": "「外側」改め「月曜だけ来る神様の経費」です。"
+    },
+    {
+      "id": "p10-a06",
+      "promptId": "p10",
+      "visualDescription": "混雑した商店街の端で、ロボットが休んでいる。",
+      "visual": {
+        "labels": [
+          "busy",
+          "colorful"
+        ],
+        "lexemes": [
+          "混雑",
+          "商店街",
+          "ロボット",
+          "休み"
+        ]
+      },
+      "prompt": "写真の外側で起きていることを教えてください",
+      "answer": "終電支店だけ、入口が出口です。"
+    },
+    {
+      "id": "p10-a07",
+      "promptId": "p10",
+      "visualDescription": "混雑した商店街の端で、ロボットが休んでいる。",
+      "visual": {
+        "labels": [
+          "busy",
+          "colorful"
+        ],
+        "lexemes": [
+          "混雑",
+          "商店街",
+          "ロボット",
+          "休み"
+        ]
+      },
+      "prompt": "写真の外側で起きていることを教えてください",
+      "answer": "宇宙支店の母が最後に電源を抜きました。"
+    },
+    {
+      "id": "p10-a08",
+      "promptId": "p10",
+      "visualDescription": "混雑した商店街の端で、ロボットが休んでいる。",
+      "visual": {
+        "labels": [
+          "busy",
+          "colorful"
+        ],
+        "lexemes": [
+          "混雑",
+          "商店街",
+          "ロボット",
+          "休み"
+        ]
+      },
+      "prompt": "写真の外側で起きていることを教えてください",
+      "answer": "今なら昭和のロボットを二人セットで無料配送。"
+    },
+    {
+      "id": "p10-a09",
+      "promptId": "p10",
+      "visualDescription": "混雑した商店街の端で、ロボットが休んでいる。",
+      "visual": {
+        "labels": [
+          "busy",
+          "colorful"
+        ],
+        "lexemes": [
+          "混雑",
+          "商店街",
+          "ロボット",
+          "休み"
+        ]
+      },
+      "prompt": "写真の外側で起きていることを教えてください",
+      "answer": "無職の王様のせいで、百年後も仮オープンです。"
+    },
+    {
+      "id": "p10-a10",
+      "promptId": "p10",
+      "visualDescription": "混雑した商店街の端で、ロボットが休んでいる。",
+      "visual": {
+        "labels": [
+          "busy",
+          "colorful"
+        ],
+        "lexemes": [
+          "混雑",
+          "商店街",
+          "ロボット",
+          "休み"
+        ]
+      },
+      "prompt": "写真の外側で起きていることを教えてください",
+      "answer": "写真外で二代目の雲が返品交渉中です。"
+    },
+    {
+      "id": "p10-a11",
+      "promptId": "p10",
+      "visualDescription": "混雑した商店街の端で、ロボットが休んでいる。",
+      "visual": {
+        "labels": [
+          "busy",
+          "colorful"
+        ],
+        "lexemes": [
+          "混雑",
+          "商店街",
+          "ロボット",
+          "休み"
+        ]
+      },
+      "prompt": "写真の外側で起きていることを教えてください",
+      "answer": "市役所の忍者が実は代打でした。"
+    },
+    {
+      "id": "p10-a12",
+      "promptId": "p10",
+      "visualDescription": "混雑した商店街の端で、ロボットが休んでいる。",
+      "visual": {
+        "labels": [
+          "busy",
+          "colorful"
+        ],
+        "lexemes": [
+          "混雑",
+          "商店街",
+          "ロボット",
+          "休み"
+        ]
+      },
+      "prompt": "写真の外側で起きていることを教えてください",
+      "answer": "会議室では、校長だけ昭和のままです。"
+    },
+    {
+      "id": "p10-a13",
+      "promptId": "p10",
+      "visualDescription": "混雑した商店街の端で、ロボットが休んでいる。",
+      "visual": {
+        "labels": [
+          "busy",
+          "colorful"
+        ],
+        "lexemes": [
+          "混雑",
+          "商店街",
+          "ロボット",
+          "休み"
+        ]
+      },
+      "prompt": "写真の外側で起きていることを教えてください",
+      "answer": "実は町内会長の休憩時間です。"
+    },
+    {
+      "id": "p10-a14",
+      "promptId": "p10",
+      "visualDescription": "混雑した商店街の端で、ロボットが休んでいる。",
+      "visual": {
+        "labels": [
+          "busy",
+          "colorful"
+        ],
+        "lexemes": [
+          "混雑",
+          "商店街",
+          "ロボット",
+          "休み"
+        ]
+      },
+      "prompt": "写真の外側で起きていることを教えてください",
+      "answer": "未来の店長、しかも二度目です。"
+    },
+    {
+      "id": "p10-a15",
+      "promptId": "p10",
+      "visualDescription": "混雑した商店街の端で、ロボットが休んでいる。",
+      "visual": {
+        "labels": [
+          "busy",
+          "colorful"
+        ],
+        "lexemes": [
+          "混雑",
+          "商店街",
+          "ロボット",
+          "休み"
+        ]
+      },
+      "prompt": "写真の外側で起きていることを教えてください",
+      "answer": "「外側」改め「月曜だけ来る神様の経費」です。"
+    },
+    {
+      "id": "p10-a16",
+      "promptId": "p10",
+      "visualDescription": "混雑した商店街の端で、ロボットが休んでいる。",
+      "visual": {
+        "labels": [
+          "busy",
+          "colorful"
+        ],
+        "lexemes": [
+          "混雑",
+          "商店街",
+          "ロボット",
+          "休み"
+        ]
+      },
+      "prompt": "写真の外側で起きていることを教えてください",
+      "answer": "終電支店だけ、入口が出口です。"
+    },
+    {
+      "id": "p10-a17",
+      "promptId": "p10",
+      "visualDescription": "混雑した商店街の端で、ロボットが休んでいる。",
+      "visual": {
+        "labels": [
+          "busy",
+          "colorful"
+        ],
+        "lexemes": [
+          "混雑",
+          "商店街",
+          "ロボット",
+          "休み"
+        ]
+      },
+      "prompt": "写真の外側で起きていることを教えてください",
+      "answer": "宇宙支店の母が最後に電源を抜きました。"
+    },
+    {
+      "id": "p10-a18",
+      "promptId": "p10",
+      "visualDescription": "混雑した商店街の端で、ロボットが休んでいる。",
+      "visual": {
+        "labels": [
+          "busy",
+          "colorful"
+        ],
+        "lexemes": [
+          "混雑",
+          "商店街",
+          "ロボット",
+          "休み"
+        ]
+      },
+      "prompt": "写真の外側で起きていることを教えてください",
+      "answer": "今なら昭和のロボットを二人セットで無料配送。"
+    },
+    {
+      "id": "p10-a19",
+      "promptId": "p10",
+      "visualDescription": "混雑した商店街の端で、ロボットが休んでいる。",
+      "visual": {
+        "labels": [
+          "busy",
+          "colorful"
+        ],
+        "lexemes": [
+          "混雑",
+          "商店街",
+          "ロボット",
+          "休み"
+        ]
+      },
+      "prompt": "写真の外側で起きていることを教えてください",
+      "answer": "無職の王様のせいで、百年後も仮オープンです。"
+    },
+    {
+      "id": "p10-a20",
+      "promptId": "p10",
+      "visualDescription": "混雑した商店街の端で、ロボットが休んでいる。",
+      "visual": {
+        "labels": [
+          "busy",
+          "colorful"
+        ],
+        "lexemes": [
+          "混雑",
+          "商店街",
+          "ロボット",
+          "休み"
+        ]
+      },
+      "prompt": "写真の外側で起きていることを教えてください",
+      "answer": "写真外で二代目の雲が返品交渉中です。"
+    }
+  ]
+}

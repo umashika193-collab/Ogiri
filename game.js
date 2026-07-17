@@ -20,6 +20,11 @@ function stopCamera(){cameraAttempt++;if(stream){stream.getTracks().forEach(trac
 function revokeStockUrl(){if(stockObjectUrl){URL.revokeObjectURL(stockObjectUrl);stockObjectUrl=''}}
 function sound(freq=220,duration=.1){try{const Audio=window.AudioContext||window.webkitAudioContext;if(!Audio)return;const ac=sound.ac??=new Audio(),osc=ac.createOscillator(),gain=ac.createGain();osc.frequency.value=freq;gain.gain.setValueAtTime(.04,ac.currentTime);gain.gain.exponentialRampToValueAtTime(.001,ac.currentTime+duration);osc.connect(gain).connect(ac.destination);osc.start();osc.stop(ac.currentTime+duration)}catch{}}
 function setState(next){state=next;document.body.dataset.state=next}
+function renderCoachRoster(){
+  const coaches=BokeScoring.coaches,roster=$('.judge-roster'),panel=$('.judge-panel');
+  if(roster)roster.replaceChildren(...coaches.map(coach=>{const span=document.createElement('span');span.textContent=`${coach.name}：${coach.key}`;return span}));
+  if(panel)panel.replaceChildren(...coaches.map(coach=>{const span=document.createElement('span');span.textContent=coach.initial;span.title=coach.key;return span}));
+}
 
 async function observeSafeWorld(){
   const now=new Date();observed.time=now.toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'});observed.day=now.toLocaleDateString('ja-JP',{weekday:'long'});observed.connection=navigator.connection?.effectiveType||'';
@@ -149,7 +154,7 @@ function showResult(result){
   const breakdown=$('#breakdown');breakdown.className='breakdown judge-scores';breakdown.replaceChildren(...result.scores.map(item=>{const span=document.createElement('span'),score=document.createElement('b');span.append(item.name,score,item.key);score.textContent=item.score;return span}));
   const coachTip=$('#coachTip');coachTip.replaceChildren();const tipTitle=document.createElement('b');tipTitle.textContent=`NEXT CHALLENGE：${lastTip.skill}`;coachTip.append(tipTitle,lastTip.text);
   const growth=$('#growth');if(baselineTotal!=null){const diff=result.total-baselineTotal;growth.textContent=diff>0?`前回から +${diff}点`:`前回比 ${diff}点`;growth.className=`growth ${diff>0?'up':''}`}else{growth.textContent=`本日 ${sessionCount}回答目`;growth.className='growth'}
-  const d=result.dimensions;$('#trace').textContent=`回答 ${result.len}文字／回答まで ${(result.responseMs/1000).toFixed(1)}秒\n写真との接続 ${Math.round(d.visual*100)}・お題への適合 ${Math.round(d.prompt*100)}・意外性 ${Math.round(d.surprise*100)}・ひねり ${Math.round(d.twist*100)}・短さ ${Math.round(d.brevity*100)}\n写真の明暗・色・密度・構図と、お題の型、回答表現を端末内で決定的に計算しています。`;
+  const d=result.dimensions;$('#trace').textContent=`回答 ${result.len}文字／回答まで ${(result.responseMs/1000).toFixed(1)}秒\n写真接続 ${Math.round(d.visualGrounding*100)}・お題適合 ${Math.round(d.promptFit*100)}・新鮮さ ${Math.round(d.novelty*100)}・意外性 ${Math.round(d.surprise*100)}・ひねり ${Math.round(d.twist*100)}・展開 ${Math.round(d.escalation*100)}\n採点 ${result.scoringVersion}／特徴 ${result.featureVersion}／設定 ${result.configVersion}（${result.configSource==='network'?'更新済み':result.configSource==='cached'?'保存済み':'内蔵'}）`;
   $('.calibrate').classList.remove('done');$('.calibrate').removeAttribute('data-message');$('#nearBtn').disabled=false;$('#farBtn').disabled=false;$('#result').classList.add('show');
   let number=0;const animation=setInterval(()=>{number++;$('#score').textContent=number;if(number>=result.total)clearInterval(animation)},25);
   const data=safeLoad(),best=Math.max(result.total,Number(data.best)||0);data.best=best;safeSave(data);$('#best').textContent=`${best}点`;navigator.vibrate?.(result.total>=58?[50,40,50,40,150]:40);
@@ -180,4 +185,5 @@ $('#nearBtn').addEventListener('click',()=>recordCalibration('near'));$('#farBtn
 document.addEventListener('visibilitychange',()=>{if(document.hidden){clearInterval(countdownHandle);countdownHandle=null;$('#countdown').textContent='';stopCamera();if(['camera-ready','camera-starting','countdown','validating'].includes(state)){setState('idle');$('#cameraStage').classList.remove('camera-ready','captured');$('#shutter').hidden=false;$('#shutter').disabled=false;$('#flipBtn').hidden=false;$('#flipBtn').disabled=false;setStatus('カメラを停止しました。撮影ボタンで再開できます')}}});
 addEventListener('pagehide',()=>{stopCamera();revokeStockUrl()});
 const initial=profile();$('#best').textContent=initial.best?`${initial.best}点`:'—';if(!SpeechRecognition)$('#answerBtn b').textContent='文字でボケる';
+renderCoachRoster();BokeScoring.loadCoachConfig('./research/judge-criteria.json').then(()=>renderCoachRoster()).catch(()=>renderCoachRoster());
 if('serviceWorker'in navigator)navigator.serviceWorker.register('./service-worker.js').catch(()=>{});
