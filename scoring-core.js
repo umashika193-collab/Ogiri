@@ -17,9 +17,9 @@
   const LOCAL_SIGNAL_WEIGHTS={promptFit:22,clarity:18,brevity:15,specificity:12,rhythm:8,visualGrounding:15,instant:10};
   const LOCAL_SIGNAL_LABELS={promptFit:'お題形式',clarity:'明瞭さ',brevity:'短さ',specificity:'具体性',rhythm:'言葉の着地',visualGrounding:'写真特徴',instant:'瞬発力'};
   const LOCAL_JURORS=[
-    {id:'prompt_bancho',name:'お題番長',initial:'題',key:'お題への着地'},
-    {id:'cut_master',name:'一言カッター',initial:'切',key:'短さとテンポ'},
-    {id:'photo_detective',name:'写真探偵',initial:'写',key:'写真の手がかり'}
+    {id:'prompt_bancho',name:'題目師',initial:'題',key:'お題への着地'},
+    {id:'cut_master',name:'一言師',initial:'言',key:'短さとテンポ'},
+    {id:'photo_detective',name:'絵読み',initial:'絵',key:'写真の手がかり'}
   ];
   const COURSE_BASELINES={
     promptFit:{mean:.65,spread:.20},clarity:{mean:.88,spread:.12},brevity:{mean:.99,spread:.15},

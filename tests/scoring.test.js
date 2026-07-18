@@ -97,7 +97,8 @@ test('API不要の三役審査は測定可能な信号だけを担当する',()=
   const dimensions=Object.fromEntries(scoring.dimensions.map(key=>[key,0]));
   Object.assign(dimensions,{promptFit:1,clarity:.8,brevity:.7,specificity:.6,rhythm:.5,visualGrounding:.4,instant:.3,novelty:1,surprise:1,twist:1});
   const jury=scoring.localJury({dimensions});
-  assert.deepEqual(jury.map(item=>item.name),['お題番長','一言カッター','写真探偵']);
+  assert.deepEqual(jury.map(item=>item.name),['題目師','一言師','絵読み']);
+  assert.deepEqual(jury.map(item=>item.initial),['題','言','絵']);
   assert.ok(jury.every(item=>Number.isInteger(item.score)&&item.score>=0&&item.score<=100&&item.comment));
   const sameMeasurableSignals={...dimensions,novelty:0,surprise:0,twist:0};
   assert.deepEqual(scoring.localJury({dimensions:sameMeasurableSignals}),jury);

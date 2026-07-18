@@ -1,6 +1,6 @@
 'use strict';
-const VERSION='0.5.0';
-const REVISION='r3';
+const VERSION='0.5.1';
+const REVISION='r2';
 const CACHE=`boke-training-v${VERSION}-${REVISION}`;
 const ASSET_QUERY=`?v=${VERSION}-${REVISION}`;
 const CONFIG_PATH='./research/judge-criteria.json';

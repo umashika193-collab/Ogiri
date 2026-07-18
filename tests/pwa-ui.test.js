@@ -38,3 +38,9 @@ test('標準ブラウザではLINE専用パラメータを付けない',()=>{
   assert.equal(elements['#openBrowserBtn'].target,'_blank');
   assert.equal(elements['#installPwaBtn'].hidden,false);
 });
+
+test('結果画面の各ブロックを縮ませず長い三役コメントを下の指標へ重ねない',()=>{
+  const css=fs.readFileSync(path.join(__dirname,'..','enhancements.css'),'utf8');
+  assert.match(css,/\.result>\*\{flex-shrink:0\}/);
+  assert.match(css,/\.result>#judgeComment\{min-height:0;overflow-wrap:anywhere\}/);
+});
