@@ -21,6 +21,10 @@
     {id:'cut_master',name:'一言カッター',initial:'切',key:'短さとテンポ'},
     {id:'photo_detective',name:'写真探偵',initial:'写',key:'写真の手がかり'}
   ];
+  const COURSE_BASELINES={
+    promptFit:{mean:.65,spread:.20},clarity:{mean:.88,spread:.12},brevity:{mean:.99,spread:.15},
+    specificity:{mean:.55,spread:.18},rhythm:{mean:.68,spread:.16},visualGrounding:{mean:.46,spread:.18},instant:{mean:.56,spread:.22}
+  };
   const CONFIG_STORAGE_KEY='bokeJudgeConfigV1',MAX_CONFIG_BYTES=128*1024;
   const DEFAULT_COMMON_WEIGHTS={promptFit:13,clarity:12,brevity:9,novelty:10,surprise:10,twist:10,specificity:8,escalation:6,rhythm:7,visualGrounding:10,instant:2,edge:3};
   const DEFAULT_PROFILES=[
@@ -51,6 +55,18 @@
     rhythm:['言葉の着地','声に出したとき最後の一語へ力が集まる語順にしよう。'],
     specificity:['具体性','数字・場所・役職・年代のどれかを一つだけ足そう。'],
     edge:['切れ味','遠慮した説明を削り、判断を言い切る一文にしよう。']
+  };
+  const COURSE_GUIDANCE={
+    '発想':'写真で目立つ一要素を、別の業界や時代の具体語へ置き換えて一文にしよう。',
+    '毒と短さ':'攻撃的な言葉を足さず、説明を削って最後の判断だけを言い切ろう。',
+    '構造と速度':'前半で状況を見せ、後半で一段だけ進める二拍の形を試そう。',
+    '観察':'色・形・配置のうち、まだ回答にない特徴を一語だけ拾おう。',
+    '異物感':'見えている特徴に、少し離れた分野の具体語を一つだけ接続しよう。',
+    '完成度':'誰が何をしたかを残し、最後の一語へ重心が集まる語順に整えよう。',
+    '選択':'候補を三つ出し、写真とお題の両方へ最も短くつながる一つを選ぼう。',
+    '情景':'場所・役職・時間のどれかを一つ足し、写真の外側まで想像できる形にしよう。',
+    '設定':'この写真だけに存在するルールを一つ決め、その結果を短く言おう。',
+    '言葉':'説明を増やさず、最後の名詞か動詞を一段具体的な言葉へ替えよう。'
   };
 
   function validWeights(value){
@@ -195,6 +211,22 @@
     const ranked=Object.keys(LOCAL_SIGNAL_WEIGHTS).map(key=>{const vote=feedback[key]||{near:0,far:0};return{key,priority:(1-(result.dimensions[key]||0))+(vote.near-vote.far)*.04}}).sort((a,b)=>b.priority-a.priority);
     const [skill,text]=TIPS[ranked[0].key];return{key:ranked[0].key,skill,text};
   }
+  function courseAdvice(result={},options={}){
+    const dimensions=result.dimensions||{},measured=Object.keys(LOCAL_SIGNAL_WEIGHTS),feedback=options.feedback&&typeof options.feedback==='object'?options.feedback:{},recent=Array.isArray(options.recentCourseIds)?options.recentCourseIds.slice(0,4):[];
+    const deviation=Object.fromEntries(measured.map(key=>[key,clamp((COURSE_BASELINES[key].mean-(Number(dimensions[key])||0))/COURSE_BASELINES[key].spread,-1.5,1.5)]));
+    const courses=activeProfiles.map((profile,index)=>{
+      const profileShare=.4*profile.confidence,rawWeights=Object.fromEntries(measured.map(key=>[key,activeCommonWeights[key]*(1-profileShare)+profile.w[key]*profileShare])),weightTotal=measured.reduce((sum,key)=>sum+rawWeights[key],0)||1;
+      const weights=Object.fromEntries(measured.map(key=>[key,rawWeights[key]/weightTotal]));
+      const need=measured.reduce((sum,key)=>sum+weights[key]*deviation[key],0),vote=feedback[profile.id]||{near:0,far:0},position=recent.indexOf(profile.id);
+      const rotationPenalty=position===0?2:position===1?.85:position===2?.4:position===3?.15:0;
+      return{profile,index,weights,priority:need+(Number(vote.near)||0)*.025-(Number(vote.far)||0)*.035-rotationPenalty};
+    }).sort((a,b)=>b.priority-a.priority||a.index-b.index);
+    const selected=courses[0],focusKey=measured.reduce((best,key)=>deviation[key]*(.5+selected.weights[key])>deviation[best]*(.5+selected.weights[best])?key:best,measured[0]);
+    const strengthKey=measured.reduce((best,key)=>(Number(dimensions[key])||0)-COURSE_BASELINES[key].mean>(Number(dimensions[best])||0)-COURSE_BASELINES[best].mean?key:best,measured[0]);
+    const focusDelta=Math.round(((Number(dimensions[focusKey])||0)-COURSE_BASELINES[focusKey].mean)*100),strengthDelta=Math.round(((Number(dimensions[strengthKey])||0)-COURSE_BASELINES[strengthKey].mean)*100);
+    const evidence=strengthKey==='brevity'?`${result.len||0}文字に収まり、${LOCAL_SIGNAL_LABELS[strengthKey]}は基準${strengthDelta>=0?'＋':''}${strengthDelta}。`:strengthKey==='instant'?`${((Number(result.responseMs)||0)/1000).toFixed(1)}秒で回答し、${LOCAL_SIGNAL_LABELS[strengthKey]}は基準${strengthDelta>=0?'＋':''}${strengthDelta}。`:strengthKey==='visualGrounding'&&Number(result.visualMatches)>0?`写真の特徴語を${result.visualMatches}個拾えており、${LOCAL_SIGNAL_LABELS[strengthKey]}は基準${strengthDelta>=0?'＋':''}${strengthDelta}。`:`この回答では${LOCAL_SIGNAL_LABELS[strengthKey]}が比較的安定し、基準${strengthDelta>=0?'＋':''}${strengthDelta}。`;
+    return{key:selected.profile.id,courseId:selected.profile.id,course:selected.profile.key,focusKey,focusLabel:LOCAL_SIGNAL_LABELS[focusKey],focusDelta,strengthKey,strengthLabel:LOCAL_SIGNAL_LABELS[strengthKey],strengthDelta,evidence,advice:COURSE_GUIDANCE[selected.profile.key]||TIPS[focusKey]?.[1]||'',basis:'検証用200回答の軸別平均と調査済み10視点の重みを照合。得点には加算していません。'};
+  }
   function localJury(result={}){
     const dimensions=result.dimensions||{};
     const score=weights=>Math.round(weights.reduce((sum,[key,weight])=>sum+clamp(Number(dimensions[key])||0)*weight,0));
@@ -205,5 +237,5 @@
       make(LOCAL_JURORS[2],score([['visualGrounding',55],['specificity',25],['clarity',20]]),['現場の証拠を発見。写真と回答が同じ部屋にいる。','写真との面会は確認。色・形を一語足すと証拠になる。','写真が参考人席で暇そう。見える特徴を一つ連れてこよう。'])
     ];
   }
-  return{analyzeImageData,neutralVisual,scoreAnswer,trainingTip,localTrainingTip,localJury,promptKind,loadCoachConfig,applyConfig,normalizeConfig,dimensions:[...DIMENSIONS],localJurors:LOCAL_JURORS.map(item=>({...item})),get coaches(){return activeProfiles.map(({id,name,key,initial,confidence})=>({id,name,key,initial,confidence}))},get configMeta(){return{...activeMeta}}};
+  return{analyzeImageData,neutralVisual,scoreAnswer,trainingTip,localTrainingTip,courseAdvice,localJury,promptKind,loadCoachConfig,applyConfig,normalizeConfig,dimensions:[...DIMENSIONS],localJurors:LOCAL_JURORS.map(item=>({...item})),courseBaselines:Object.fromEntries(Object.entries(COURSE_BASELINES).map(([key,value])=>[key,{...value}])),get coaches(){return activeProfiles.map(({id,name,key,initial,confidence})=>({id,name,key,initial,confidence}))},get configMeta(){return{...activeMeta}}};
 });

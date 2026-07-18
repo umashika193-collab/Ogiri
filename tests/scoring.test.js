@@ -102,3 +102,51 @@ test('API不要の三役審査は測定可能な信号だけを担当する',()=
   const sameMeasurableSignals={...dimensions,novelty:0,surprise:0,twist:0};
   assert.deepEqual(scoring.localJury({dimensions:sameMeasurableSignals}),jury);
 });
+
+test('旧10視点の設定は三役のローカル得点へ影響しない',()=>{
+  const input={answer:'校長だけ月面勤務です。',prompt:'この学校だけにある変なルールは？',responseMs:8000,visual:scoring.neutralVisual()};
+  scoring.applyConfig(judgeConfig,'test');const before=scoring.scoreAnswer(input).localScore;
+  const changed=structuredClone(judgeConfig),oneAxis=target=>Object.fromEntries(scoring.dimensions.map(key=>[key,key===target?100:0]));
+  changed.commonWeights=oneAxis('novelty');changed.profiles.forEach((profile,index)=>{profile.confidence=index%2;profile.weights=oneAxis(index%2?'edge':'twist')});
+  scoring.applyConfig(changed,'test');const after=scoring.scoreAnswer(input).localScore;scoring.applyConfig(judgeConfig,'test');
+  assert.equal(after,before);
+});
+
+test('研究データは点数ではなく回答別の練習コースとアドバイスを返す',()=>{
+  const result=scoring.scoreAnswer({answer:'白い椅子だけ有給です。',prompt:'この写真で一言。',responseMs:7200,visual:visual(['bright'],['白','光'])});
+  const advice=scoring.courseAdvice(result);
+  assert.ok(scoring.coaches.some(course=>course.key===advice.course));
+  assert.ok(advice.evidence.includes('基準'));
+  assert.ok(advice.advice.length>10);
+  assert.match(advice.basis,/得点には加算していません/);
+  assert.ok(!JSON.stringify(advice).includes('松本'));
+});
+
+test('練習コースは測定不能な意味軸を推薦判断に使わない',()=>{
+  const dimensions=Object.fromEntries(scoring.dimensions.map(key=>[key,.6]));
+  const first=scoring.courseAdvice({dimensions,len:12,responseMs:8000,visualMatches:0});
+  const changed={...dimensions,novelty:0,surprise:1,twist:0,escalation:1,edge:0};
+  const second=scoring.courseAdvice({dimensions:changed,len:12,responseMs:8000,visualMatches:0});
+  assert.deepEqual(second,first);
+});
+
+test('直前の練習コースを避けてローテーションする',()=>{
+  const result=scoring.scoreAnswer({answer:'白い椅子だけ有給です。',prompt:'この写真で一言。',responseMs:7200,visual:visual(['bright'],['白','光'])});
+  const first=scoring.courseAdvice(result),second=scoring.courseAdvice(result,{recentCourseIds:[first.courseId]});
+  assert.notEqual(second.courseId,first.courseId);
+});
+
+test('コース内では平均との差が大きい測定軸をアドバイス対象にする',()=>{
+  const dimensions=Object.fromEntries(scoring.dimensions.map(key=>[key,.9]));dimensions.instant=.1;
+  const advice=scoring.courseAdvice({dimensions,len:10,responseMs:30000,visualMatches:1});
+  assert.equal(advice.focusKey,'instant');assert.ok(advice.focusDelta<0);
+});
+
+test('200回答で特定の練習コースへ推薦が集中しない',()=>{
+  const validation=JSON.parse(fs.readFileSync(path.join(__dirname,'..','research','validation-set.json'),'utf8')),counts=new Map();let recent=[];
+  for(const item of validation.items){
+    const result=scoring.scoreAnswer({answer:item.answer,prompt:item.prompt,responseMs:15000,visual:{...scoring.neutralVisual(),...item.visual}}),advice=scoring.courseAdvice(result,{recentCourseIds:recent});
+    counts.set(advice.courseId,(counts.get(advice.courseId)||0)+1);recent.unshift(advice.courseId);recent=[...new Set(recent)].slice(0,4);
+  }
+  assert.equal(counts.size,10);assert.ok(Math.max(...counts.values())<=40);
+});
