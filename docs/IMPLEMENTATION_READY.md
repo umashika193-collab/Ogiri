@@ -10,7 +10,7 @@
 2. お題に音声で回答する
 3. 10種類の評価軸で100点満点の分析を受ける
 4. 最も弱い能力に対する改善ヒントを受ける
-5. 同じ教材・同じお題へ再回答する
+5. 同じ写真へ「この写真で一言。」で再回答する
 6. 前回からの変化を確認する
 
 ## 2. 確定したプロダクト判断
@@ -22,7 +22,7 @@
 - 現在の表示名は `松本◯志 / 有吉◯行 / 粗◯ / 赤嶺総◯ / 真空ジェシカ・川北◯澄 / 設楽◯ / 寺田◯明 / 千原ジュ◯ア / バカリ◯ム / 笑い飯・西田◯治`。
 - 伏字と実在人物の対応表は製品内に保存しない。
 - 本人の再現率を保証しない。説明可能な評価タイプとして提供する。
-- フリー画像はOpenverseから都度取得し、アプリ資産として保存しない。
+- フリー画像は4回ごとに3回を同梱素材、1回をWikimedia Commonsから都度取得し、外部画像をアプリ資産として保存しない。
 - オフライン時は端末上で練習画像を生成する。
 - 写真と音声は原則として外部送信・永続保存しない。
 - 採点根拠をユーザーが確認できるようにする。
@@ -36,9 +36,9 @@
 - 正方形撮影
 - 人物撮影禁止表示
 - 対応端末での顔検出
-- OpenverseからのCC0・PDM画像取得
+- Wikimedia Commonsからの自由利用可能な実写JPEG取得
 - 作品名、作者、ライセンス、原典の表示
-- 通信失敗時の端末生成画像
+- 通信失敗時の同梱実写風素材
 
 ### 回答
 
@@ -64,7 +64,7 @@
 
 - アプリシェルのキャッシュ
 - お題と採点のオフライン実行
-- 端末生成教材
+- 45場面の同梱実写風教材
 - 最後に取得した採点設定の利用
 
 ## 4. MVP対象外
@@ -91,7 +91,7 @@ src/
   media/
     camera.ts              撮影とカメラ切替
     face-guard.ts          人物検出と警告
-    openverse.ts           画像検索・フィルター・帰属表示
+    commons.ts             画像検索・フィルター・帰属表示
     offline-generator.ts   オフライン教材生成
   speech/
     recognition.ts         音声認識アダプター
@@ -139,7 +139,7 @@ type TrainingAttempt = {
   createdAt: string;
   promptId: string;
   promptText: string;
-  sourceType: "camera" | "openverse" | "generated";
+  sourceType: "camera" | "commons" | "bundled";
   answerText: string;
   responseMs: number;
   featureVersion: string;
@@ -153,7 +153,7 @@ type TrainingAttempt = {
 };
 ```
 
-写真と音声の原データは `TrainingAttempt` に含めない。Openverse画像の場合は、必要に応じて原典URLとライセンス情報のみを一時表示する。
+写真と音声の原データは `TrainingAttempt` に含めない。Commons画像の場合は、原典URL、作者、ライセンス情報だけを一時表示する。
 
 ## 7. 採点モデル
 
@@ -227,8 +227,8 @@ wording    言葉
 - CSSが圧縮された単一行中心で保守しにくい。
 - Web Speech APIは端末・ブラウザ差が大きい。
 - FaceDetector APIは対応範囲が限定され、人物除外の保証にはならない。
-- Openverseの人物除外はタグ文字列フィルターのみで、画像内容を保証しない。
-- Openverseのライセンス情報は原典での確認が必要。
+- Wikimedia Commonsの人物・非写真除外はメタデータ文字列フィルターで、画像内容を完全には保証しない。
+- Wikimedia Commonsのライセンス情報は表示する原典リンクでも確認できるようにする。
 - Google Fontsは完全オフライン時に取得できない。
 - Service Workerのフォールバック対象をHTMLナビゲーションに限定する必要がある。
 - 現在のフィードバックは採点へ反映されない。

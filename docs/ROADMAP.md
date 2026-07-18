@@ -12,7 +12,7 @@
 
 ## Phase 1 — Training MVP
 
-- カメラ、音声、Openverse、生成画像
+- カメラ、音声、Wikimedia Commons、同梱画像
 - 10軸100点分析
 - 改善ヒント
 - 同一問題への再挑戦
